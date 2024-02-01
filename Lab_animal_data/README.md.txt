@@ -1,1 +1,1 @@
-Analysi sof dormancy in the amphibain microbiome
+AnalysiS of dormancy in the amphibain microbiome
