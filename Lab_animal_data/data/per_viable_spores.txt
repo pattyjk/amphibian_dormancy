@@ -1,0 +1,181 @@
+Type	Type1	Type2	Total_fluor	Species	Common_name	Viable_fluor	Per_viable
+Muc_total	Mucosome	Total_spores	20793	Litoria caerulea	Aus. Green tree frog	21897	95
+Muc_total	Mucosome	Total_spores	20718	Litoria caerulea	Aus. Green tree frog	21004	99
+Muc_total	Mucosome	Total_spores	20595	Litoria caerulea	Aus. Green tree frog	21588	96
+Muc_total	Mucosome	Total_spores	20419	Litoria caerulea	Aus. Green tree frog	22458	91
+Muc_total	Mucosome	Total_spores	20873	Litoria caerulea	Aus. Green tree frog	22663	93
+Muc_total	Mucosome	Total_spores	20955	Litoria caerulea	Aus. Green tree frog	23354	90
+Muc_total	Mucosome	Total_spores	21382	Litoria caerulea	Aus. Green tree frog	21878	98
+Muc_total	Mucosome	Total_spores	21208	Litoria caerulea	Aus. Green tree frog	22522	95
+Muc_total	Mucosome	Total_spores	21597	Litoria caerulea	Aus. Green tree frog	22566	96
+Muc_total	Mucosome	Total_spores	23125	Litoria caerulea	Aus. Green tree frog	25843	90
+Muc_total	Mucosome	Total_spores	23239	Litoria caerulea	Aus. Green tree frog	25325	92
+Muc_total	Mucosome	Total_spores	23432	Litoria caerulea	Aus. Green tree frog	25556	92
+Muc_total	Mucosome	Total_spores	24797	Litoria caerulea	Aus. Green tree frog	30244	82
+Muc_total	Mucosome	Total_spores	23866	Litoria caerulea	Aus. Green tree frog	29717	81
+Muc_total	Mucosome	Total_spores	25457	Litoria caerulea	Aus. Green tree frog	31500	81
+Swab_total	Swab	Total_spores	20735	Litoria caerulea	Aus. Green tree frog	20935.95	100
+Swab_total	Swab	Total_spores	20606	Litoria caerulea	Aus. Green tree frog	21277.2	97
+Swab_total	Swab	Total_spores	20904	Litoria caerulea	Aus. Green tree frog	21368.55	98
+Swab_total	Swab	Total_spores	20563	Litoria caerulea	Aus. Green tree frog	20898.15	99
+Swab_total	Swab	Total_spores	19919	Litoria caerulea	Aus. Green tree frog	20927.55	96
+Swab_total	Swab	Total_spores	20726	Litoria caerulea	Aus. Green tree frog	21244.65	98
+Swab_total	Swab	Total_spores	20954	Litoria caerulea	Aus. Green tree frog	21641.55	97
+Swab_total	Swab	Total_spores	20993	Litoria caerulea	Aus. Green tree frog	21537.6	98
+Swab_total	Swab	Total_spores	21862	Litoria caerulea	Aus. Green tree frog	22140.3	99
+Swab_total	Swab	Total_spores	23169	Litoria caerulea	Aus. Green tree frog	25349.45	92
+Swab_total	Swab	Total_spores	22578	Litoria caerulea	Aus. Green tree frog	22739.85	100
+Swab_total	Swab	Total_spores	23827	Litoria caerulea	Aus. Green tree frog	24609.9	97
+Swab_total	Swab	Total_spores	23681	Litoria caerulea	Aus. Green tree frog	23826.6	100
+Swab_total	Swab	Total_spores	23244	Litoria caerulea	Aus. Green tree frog	23660.7	99
+Swab_total	Swab	Total_spores	25091	Litoria caerulea	Aus. Green tree frog	26959.45	94
+Muc_total	Mucosome	Total_spores	20941	Eurycea wilderae	Blue ridge two lined salamander	21177	99
+Muc_total	Mucosome	Total_spores	21324	Eurycea wilderae	Blue ridge two lined salamander	22983	93
+Muc_total	Mucosome	Total_spores	22110	Eurycea wilderae	Blue ridge two lined salamander	22683	98
+Muc_total	Mucosome	Total_spores	20836	Eurycea wilderae	Blue ridge two lined salamander	20991	100
+Muc_total	Mucosome	Total_spores	20559	Eurycea wilderae	Blue ridge two lined salamander	20785	99
+Muc_total	Mucosome	Total_spores	21647	Eurycea wilderae	Blue ridge two lined salamander	22338	97
+Muc_total	Mucosome	Total_spores	20343	Eurycea wilderae	Blue ridge two lined salamander	20363	100
+Muc_total	Mucosome	Total_spores	19988	Eurycea wilderae	Blue ridge two lined salamander	20702	97
+Muc_total	Mucosome	Total_spores	21398	Eurycea wilderae	Blue ridge two lined salamander	21958	98
+Muc_total	Mucosome	Total_spores	20252	Eurycea wilderae	Blue ridge two lined salamander	20784	98
+Muc_total	Mucosome	Total_spores	20882	Eurycea wilderae	Blue ridge two lined salamander	20929	100
+Muc_total	Mucosome	Total_spores	21386	Eurycea wilderae	Blue ridge two lined salamander	22123	97
+Muc_total	Mucosome	Total_spores	20686	Eurycea wilderae	Blue ridge two lined salamander	21600	96
+Muc_total	Mucosome	Total_spores	20510	Eurycea wilderae	Blue ridge two lined salamander	21139	98
+Muc_total	Mucosome	Total_spores	22371	Eurycea wilderae	Blue ridge two lined salamander	22592	100
+Swab_total	Swab	Total_spores	21787	Eurycea wilderae	Blue ridge two lined salamander	23515.2	93
+Swab_total	Swab	Total_spores	21816	Eurycea wilderae	Blue ridge two lined salamander	22162.35	99
+Swab_total	Swab	Total_spores	23556	Eurycea wilderae	Blue ridge two lined salamander	25611.65	92
+Swab_total	Swab	Total_spores	20256	Eurycea wilderae	Blue ridge two lined salamander	21234.15	96
+Swab_total	Swab	Total_spores	20963	Eurycea wilderae	Blue ridge two lined salamander	21549.15	98
+Swab_total	Swab	Total_spores	22130	Eurycea wilderae	Blue ridge two lined salamander	22661.1	98
+Swab_total	Swab	Total_spores	21056	Eurycea wilderae	Blue ridge two lined salamander	22939.05	92
+Swab_total	Swab	Total_spores	20926	Eurycea wilderae	Blue ridge two lined salamander	21287.7	99
+Swab_total	Swab	Total_spores	23450	Eurycea wilderae	Blue ridge two lined salamander	25070	94
+Swab_total	Swab	Total_spores	21149	Eurycea wilderae	Blue ridge two lined salamander	23149.5	92
+Swab_total	Swab	Total_spores	21549	Eurycea wilderae	Blue ridge two lined salamander	22094.95	98
+Swab_total	Swab	Total_spores	23196	Eurycea wilderae	Blue ridge two lined salamander	24956.15	93
+Swab_total	Swab	Total_spores	20940	Eurycea wilderae	Blue ridge two lined salamander	20964.3	100
+Swab_total	Swab	Total_spores	20933	Eurycea wilderae	Blue ridge two lined salamander	21015.75	100
+Swab_total	Swab	Total_spores	22260	Eurycea wilderae	Blue ridge two lined salamander	23150.4	97
+Muc_total	Mucosome	Total_spores	21443	Notophthalmus viridescens	Eastern newt	22631	95
+Muc_total	Mucosome	Total_spores	21816	Notophthalmus viridescens	Eastern newt	22496	97
+Muc_total	Mucosome	Total_spores	21735	Notophthalmus viridescens	Eastern newt	22592	97
+Muc_total	Mucosome	Total_spores	22184	Notophthalmus viridescens	Eastern newt	23229	96
+Muc_total	Mucosome	Total_spores	23573	Notophthalmus viridescens	Eastern newt	23646	100
+Muc_total	Mucosome	Total_spores	22489	Notophthalmus viridescens	Eastern newt	22580	100
+Muc_total	Mucosome	Total_spores	20776	Notophthalmus viridescens	Eastern newt	21252	98
+Muc_total	Mucosome	Total_spores	40553	Notophthalmus viridescens	Eastern newt	41849	97
+Muc_total	Mucosome	Total_spores	23610	Notophthalmus viridescens	Eastern newt	23721	100
+Muc_total	Mucosome	Total_spores	20665	Notophthalmus viridescens	Eastern newt	20715	100
+Muc_total	Mucosome	Total_spores	20494	Notophthalmus viridescens	Eastern newt	20510	100
+Muc_total	Mucosome	Total_spores	20497	Notophthalmus viridescens	Eastern newt	20554	100
+Muc_total	Mucosome	Total_spores	20099	Notophthalmus viridescens	Eastern newt	20779	97
+Muc_total	Mucosome	Total_spores	20336	Notophthalmus viridescens	Eastern newt	20447	100
+Muc_total	Mucosome	Total_spores	20152	Notophthalmus viridescens	Eastern newt	20211	100
+Swab_total	Swab	Total_spores	21849	Notophthalmus viridescens	Eastern newt	23148.3	95
+Swab_total	Swab	Total_spores	22156	Notophthalmus viridescens	Eastern newt	22791.3	98
+Swab_total	Swab	Total_spores	23236	Notophthalmus viridescens	Eastern newt	24538.7	95
+Swab_total	Swab	Total_spores	24063	Notophthalmus viridescens	Eastern newt	25293	96
+Swab_total	Swab	Total_spores	24472	Notophthalmus viridescens	Eastern newt	24621	100
+Swab_total	Swab	Total_spores	23930	Notophthalmus viridescens	Eastern newt	24163	100
+Swab_total	Swab	Total_spores	22439	Notophthalmus viridescens	Eastern newt	23790.05	95
+Swab_total	Swab	Total_spores	22101	Notophthalmus viridescens	Eastern newt	23364.55	95
+Swab_total	Swab	Total_spores	21692	Notophthalmus viridescens	Eastern newt	21786.45	100
+Swab_total	Swab	Total_spores	21865	Notophthalmus viridescens	Eastern newt	23267.95	94
+Swab_total	Swab	Total_spores	20755	Notophthalmus viridescens	Eastern newt	21598.5	97
+Swab_total	Swab	Total_spores	20408	Notophthalmus viridescens	Eastern newt	21331.8	96
+Swab_total	Swab	Total_spores	20557	Notophthalmus viridescens	Eastern newt	21039.9	98
+Swab_total	Swab	Total_spores	20058	Notophthalmus viridescens	Eastern newt	20591.55	98
+Swab_total	Swab	Total_spores	20499	Notophthalmus viridescens	Eastern newt	21905.1	94
+Muc_total	Mucosome	Total_spores	21054	Bombina orientalis	Fire bellied toad	21381	99
+Muc_total	Mucosome	Total_spores	22858	Bombina orientalis	Fire bellied toad	21006	99
+Muc_total	Mucosome	Total_spores	22160	Bombina orientalis	Fire bellied toad	22760	98
+Muc_total	Mucosome	Total_spores	21186	Bombina orientalis	Fire bellied toad	21035	100
+Muc_total	Mucosome	Total_spores	21246	Bombina orientalis	Fire bellied toad	22150	96
+Muc_total	Mucosome	Total_spores	21978	Bombina orientalis	Fire bellied toad	22330	99
+Muc_total	Mucosome	Total_spores	21890	Bombina orientalis	Fire bellied toad	22139	99
+Muc_total	Mucosome	Total_spores	20736	Bombina orientalis	Fire bellied toad	22658	92
+Muc_total	Mucosome	Total_spores	20935	Bombina orientalis	Fire bellied toad	23067	91
+Muc_total	Mucosome	Total_spores	21068	Bombina orientalis	Fire bellied toad	23298	91
+Muc_total	Mucosome	Total_spores	21110	Bombina orientalis	Fire bellied toad	22875	93
+Muc_total	Mucosome	Total_spores	21305	Bombina orientalis	Fire bellied toad	22944	93
+Muc_total	Mucosome	Total_spores	21318	Bombina orientalis	Fire bellied toad	21126	100
+Muc_total	Mucosome	Total_spores	21697	Bombina orientalis	Fire bellied toad	21874	100
+Muc_total	Mucosome	Total_spores	22822	Bombina orientalis	Fire bellied toad	23080	99
+Swab_total	Swab	Total_spores	22283	Bombina orientalis	Fire bellied toad	21692	100
+Swab_total	Swab	Total_spores	22109	Bombina orientalis	Fire bellied toad	22520	99
+Swab_total	Swab	Total_spores	23820	Bombina orientalis	Fire bellied toad	22831	100
+Swab_total	Swab	Total_spores	21453	Bombina orientalis	Fire bellied toad	21828	99
+Swab_total	Swab	Total_spores	22112	Bombina orientalis	Fire bellied toad	21890	100
+Swab_total	Swab	Total_spores	22601	Bombina orientalis	Fire bellied toad	22643	100
+Swab_total	Swab	Total_spores	21611	Bombina orientalis	Fire bellied toad	21524	100
+Swab_total	Swab	Total_spores	21767	Bombina orientalis	Fire bellied toad	21364	100
+Swab_total	Swab	Total_spores	21843	Bombina orientalis	Fire bellied toad	21569	100
+Swab_total	Swab	Total_spores	21984	Bombina orientalis	Fire bellied toad	21706	100
+Swab_total	Swab	Total_spores	21765	Bombina orientalis	Fire bellied toad	21750	100
+Swab_total	Swab	Total_spores	21143	Bombina orientalis	Fire bellied toad	21951	97
+Swab_total	Swab	Total_spores	22022	Bombina orientalis	Fire bellied toad	21964	100
+Swab_total	Swab	Total_spores	21873	Bombina orientalis	Fire bellied toad	22355	98
+Swab_total	Swab	Total_spores	22942	Bombina orientalis	Fire bellied toad	22822	100
+Muc_total	Mucosome	Total_spores	30596	Salamandra salamandra	Fire salamander	34374	90
+Muc_total	Mucosome	Total_spores	29253	Salamandra salamandra	Fire salamander	32363	91
+Muc_total	Mucosome	Total_spores	29113	Salamandra salamandra	Fire salamander	32779	89
+Muc_total	Mucosome	Total_spores	21644	Salamandra salamandra	Fire salamander	21715	100
+Muc_total	Mucosome	Total_spores	20998	Salamandra salamandra	Fire salamander	20871	100
+Muc_total	Mucosome	Total_spores	20751	Salamandra salamandra	Fire salamander	20598	100
+Muc_total	Mucosome	Total_spores	32155	Salamandra salamandra	Fire salamander	37912	85
+Muc_total	Mucosome	Total_spores	30102	Salamandra salamandra	Fire salamander	34752	87
+Muc_total	Mucosome	Total_spores	30348	Salamandra salamandra	Fire salamander	34961	87
+Muc_total	Mucosome	Total_spores	21864	Salamandra salamandra	Fire salamander	21478	100
+Muc_total	Mucosome	Total_spores	19045	Salamandra salamandra	Fire salamander	20926	92
+Muc_total	Mucosome	Total_spores	18711	Salamandra salamandra	Fire salamander	19450	97
+Muc_total	Mucosome	Total_spores	21392	Salamandra salamandra	Fire salamander	22877	94
+Muc_total	Mucosome	Total_spores	20193	Salamandra salamandra	Fire salamander	23354	87
+Muc_total	Mucosome	Total_spores	20222	Salamandra salamandra	Fire salamander	21492	95
+Swab_total	Swab	Total_spores	24652	Salamandra salamandra	Fire salamander	24771	100
+Swab_total	Swab	Total_spores	23350	Salamandra salamandra	Fire salamander	23840	98
+Swab_total	Swab	Total_spores	25138	Salamandra salamandra	Fire salamander	25148	100
+Swab_total	Swab	Total_spores	21840	Salamandra salamandra	Fire salamander	23201.85	95
+Swab_total	Swab	Total_spores	21158	Salamandra salamandra	Fire salamander	21966	97
+Swab_total	Swab	Total_spores	20799	Salamandra salamandra	Fire salamander	21402.15	98
+Swab_total	Swab	Total_spores	22256	Salamandra salamandra	Fire salamander	23245.95	96
+Swab_total	Swab	Total_spores	20957	Salamandra salamandra	Fire salamander	22387.05	94
+Swab_total	Swab	Total_spores	22746	Salamandra salamandra	Fire salamander	24022.35	95
+Swab_total	Swab	Total_spores	22310	Salamandra salamandra	Fire salamander	22656.9	99
+Swab_total	Swab	Total_spores	20446	Salamandra salamandra	Fire salamander	21648.9	95
+Swab_total	Swab	Total_spores	21129	Salamandra salamandra	Fire salamander	22913.75	93
+Swab_total	Swab	Total_spores	22250	Salamandra salamandra	Fire salamander	22886.85	98
+Swab_total	Swab	Total_spores	21414	Salamandra salamandra	Fire salamander	22222.2	97
+Swab_total	Swab	Total_spores	20872	Salamandra salamandra	Fire salamander	21174.3	99
+Muc_total	Mucosome	Total_spores	21791	Ambystoma maculatum	Spotted salamander	22806	96
+Muc_total	Mucosome	Total_spores	20107	Ambystoma maculatum	Spotted salamander	21346	95
+Muc_total	Mucosome	Total_spores	20388	Ambystoma maculatum	Spotted salamander	21280	96
+Muc_total	Mucosome	Total_spores	21461	Ambystoma maculatum	Spotted salamander	23171	93
+Muc_total	Mucosome	Total_spores	19861	Ambystoma maculatum	Spotted salamander	21902	91
+Muc_total	Mucosome	Total_spores	20508	Ambystoma maculatum	Spotted salamander	22256	93
+Muc_total	Mucosome	Total_spores	34062	Ambystoma maculatum	Spotted salamander	38879	88
+Muc_total	Mucosome	Total_spores	32405	Ambystoma maculatum	Spotted salamander	38213	85
+Muc_total	Mucosome	Total_spores	32028	Ambystoma maculatum	Spotted salamander	38203	84
+Muc_total	Mucosome	Total_spores	30400	Ambystoma maculatum	Spotted salamander	33635	91
+Muc_total	Mucosome	Total_spores	31534	Ambystoma maculatum	Spotted salamander	34763	91
+Muc_total	Mucosome	Total_spores	32017	Ambystoma maculatum	Spotted salamander	34845	92
+Muc_total	Mucosome	Total_spores	24442	Ambystoma maculatum	Spotted salamander	27486	89
+Muc_total	Mucosome	Total_spores	25026	Ambystoma maculatum	Spotted salamander	29056	87
+Muc_total	Mucosome	Total_spores	25320	Ambystoma maculatum	Spotted salamander	28943	88
+Swab_total	Swab	Total_spores	22488	Ambystoma maculatum	Spotted salamander	23199.75	97
+Swab_total	Swab	Total_spores	20586	Ambystoma maculatum	Spotted salamander	21476.7	96
+Swab_total	Swab	Total_spores	21352	Ambystoma maculatum	Spotted salamander	23204.7	93
+Swab_total	Swab	Total_spores	22156	Ambystoma maculatum	Spotted salamander	23312.1	96
+Swab_total	Swab	Total_spores	21602	Ambystoma maculatum	Spotted salamander	23393.3	93
+Swab_total	Swab	Total_spores	21490	Ambystoma maculatum	Spotted salamander	21720.3	99
+Swab_total	Swab	Total_spores	23562	Ambystoma maculatum	Spotted salamander	24406.2	97
+Swab_total	Swab	Total_spores	23000	Ambystoma maculatum	Spotted salamander	23639.7	98
+Swab_total	Swab	Total_spores	23607	Ambystoma maculatum	Spotted salamander	25484	93
+Swab_total	Swab	Total_spores	22585	Ambystoma maculatum	Spotted salamander	23222	98
+Swab_total	Swab	Total_spores	22875	Ambystoma maculatum	Spotted salamander	23393	98
+Swab_total	Swab	Total_spores	23466	Ambystoma maculatum	Spotted salamander	23471	100
+Swab_total	Swab	Total_spores	20159	Ambystoma maculatum	Spotted salamander	21703.5	93
+Swab_total	Swab	Total_spores	20876	Ambystoma maculatum	Spotted salamander	21665.7	97
+Swab_total	Swab	Total_spores	22797	Ambystoma maculatum	Spotted salamander	24237.4	95
