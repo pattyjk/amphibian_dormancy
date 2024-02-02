@@ -25,6 +25,8 @@ frozen_spore_viable <-
 frozen_spore_total <-
   read_excel("lab_animal_data/data/TbCl_assay_post_freeze.xlsx", sheet = 2)
 
+total_vs_viable <- read.delim("lab_animal_data/data/per_viable_spores.txt", sep = '\t', header=T)
+
 #cell stain data 
 cell_stains <-
   read_excel("lab_animal_data/data/CFU_cell_counts.xlsx", sheet = 7)
@@ -36,11 +38,30 @@ cell_culture_fresh <-
 cell_culture_frozen <-
   read_excel("lab_animal_data/data/CFU_cell_counts.xlsx", sheet =5)
 
+
+
 #### Cell Stain Figures ####
 
+#pivot data to longer to place on a singular plot 
+cell_stain_long <-
+  pivot_longer(cell_stains, cols = c('Total bacteria_blue', 'Total_bacteria_red'), names_to = "stain", values_to = "value")
+
+# create a barplot that displays both stain types on a single axis based on species
 ctc_dapi <-
-  ggplot(cell_stains, mapping = aes(x = Species, y = cell_stains$`Total bacteria_blue`) |>
-           geom_boxplot()
+  ggplot(cell_stain_long, aes(x = Species, y = value, fill = stain)) +
+           geom_boxplot()+
+  ylab("Cell Count") +
+  theme_bw() +
+  scale_fill_manual(values =c("Total_bacteria_red" = "#FF9999", "Total bacteria_blue" =  "#56B4E9" ),
+                    labels = c("Stained with DAPI", "Stained with CTC"))
+
+
+
+#### TbCL Figures ####
+
+
+# Remove the Mucosome data
+tbcl_spores_filtered <- subset(total_vs_viable, !grepl("Mucosome", Type1, ignore.case = TRUE))
 
 
   
