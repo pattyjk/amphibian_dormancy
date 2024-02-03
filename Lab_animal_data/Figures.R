@@ -50,7 +50,7 @@ cell_stain_long <-
 
 # create a barplot that displays both stain types on a single axis based on species
 ctc_dapi <-
-  ggplot(cell_stain_long, aes(x = Species, y = value, fill = stain)) +
+  ggplot(cell_stain_long, aes(x = value, y = Species, fill = stain)) +
            geom_boxplot()+
   ylab("Cell Count") +
   theme_bw() +
@@ -91,7 +91,7 @@ Cell_culture_combined <-
 #Figure showing CFUS/ml for both fresh and frozen samples per species
 
 Cell_culture_combined |>
-  ggplot( aes(Species, `CFU/ml_2/22`, fill = SampleType)) +
+  ggplot( aes(`CFU/ml_2/22`, Species , fill = SampleType)) +
   geom_boxplot() +
   theme_bw()
 
