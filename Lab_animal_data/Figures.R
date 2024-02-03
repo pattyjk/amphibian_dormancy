@@ -10,6 +10,8 @@ library(readr)
 library(readxl)
 library(ggplot2)
 library(tidyr)
+library(data.table)
+library(dplyr)
 
 # Load in the needed data
 #TbCl Data 
@@ -64,5 +66,36 @@ ctc_dapi <-
 tbcl_spores_filtered <- subset(total_vs_viable, !grepl("Mucosome", Type1, ignore.case = TRUE))
 
 
-  
+#### Cell Culture Figures #####
+
+# adds a new column denoting the samples as fresh or frozen for combination into a single table
+
+cell_culture_frozen<- cell_culture_frozen |>
+  mutate(SampleType = "Frozen")
+
+cell_culture_fresh<- cell_culture_fresh |>
+  mutate(SampleType = "Fresh")
+
+# Cleaning Data table
+cell_culture_fresh <- cell_culture_fresh |>
+  select(`CFU/ml_2/22`, `CFUs_2/22`, Sample_ID, SampleType, Species, Common_name)
+
+cell_culture_frozen <- cell_culture_frozen |>
+  select(`CFU/ml_2/22`,  Colonies, Sample_ID, SampleType, Species, Common_name) |>
+  rename('CFUs_2/22' = Colonies)
+
+#Combine the two data tables into one for making figures
+Cell_culture_combined <- 
+  bind_rows(cell_culture_fresh, cell_culture_frozen)
+
+#Figure showing CFUS/ml for both fresh and frozen samples per species
+
+Cell_culture_combined |>
+  ggplot( aes(Species, `CFU/ml_2/22`, fill = SampleType)) +
+  geom_boxplot() +
+  theme_bw()
+
+
+
+
 
