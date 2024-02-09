@@ -70,7 +70,7 @@ total_vs_viable <-
 total_vs_viable_long <-
   pivot_longer(total_vs_viable, cols = c('Total_fluor', 'Viable_fluor'), names_to = "total_vs_viable", values_to = "Fluor_reading")
 
-#adds a new column that determines the spore count from the fluorescnese reading data
+#adds a new column that determines the spore count from the fluorescnese reading data based on the average standard curve
 total_vs_viable_clean <-
   total_vs_viable_long |>
   mutate(num_spore = (Fluor_reading-22798)/0.272)
