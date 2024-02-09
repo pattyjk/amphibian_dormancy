@@ -61,6 +61,31 @@ ctc_dapi <-
 
 #### TbCL Figures ####
 
+# Remove mucosome data
+total_vs_viable <-
+  total_vs_viable |>
+  filter(Type1 != 'Mucosome')
+
+# pivot datato longer to place on singular plot
+total_vs_viable_long <-
+  pivot_longer(total_vs_viable, cols = c('Total_fluor', 'Viable_fluor'), names_to = "total_vs_viable", values_to = "Fluor_reading")
+
+#adds a new column that determines the spore count from the fluorescnese reading data
+total_vs_viable_clean <-
+  total_vs_viable_long |>
+  mutate(num_spore = (Fluor_reading-22798)/0.272)
+
+#remove the negative values from the spore counts
+total_vs_viable_clean <-
+  total_vs_viable_clean |>
+  filter(num_spore >= 0)
+
+
+#plotting the measure of viable versus total spore counts 
+total_vs_viable_clean |>
+  ggplot(aes(x= Species, y = num_spore, fill = total_vs_viable)) +
+  geom_boxplot()
+
 
 # Remove the Mucosome data
 tbcl_spores_filtered <- subset(total_vs_viable, !grepl("Mucosome", Type1, ignore.case = TRUE))
