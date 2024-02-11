@@ -84,7 +84,10 @@ total_vs_viable_clean <-
 #plotting the measure of viable versus total spore counts 
 total_vs_viable_clean |>
   ggplot(aes(x= Species, y = num_spore, fill = total_vs_viable)) +
-  geom_boxplot()
+  geom_boxplot() + 
+  scale_fill_manual(values =c("Total_fluor" = "#FF9999", "Viable_fluor" =  "#56B4E9" ),
+                    labels = c("Viable Spore Count", "Total Spore Count"))
+  
 
 
 # Remove the Mucosome data
@@ -119,6 +122,76 @@ Cell_culture_combined |>
   ggplot( aes(`CFU/ml_2/22`, Species , fill = SampleType)) +
   geom_boxplot() +
   theme_bw()
+
+
+#### Standard Curve Graph ####
+
+#create functions for each standard curve
+Virdibacillus_arri <- function (x) {
+   return(0.272 * x + 23898)
+}
+
+Lysinibacillus_fusiformis <- function(x) {
+  return(0.291*x+21181)
+}
+
+Bacillus_tropicus <- function(x) {
+  return(0.291*x+27622)
+}
+
+Paenibacillus_chitinolyticus <- function(x) {
+  return(0.291*x+25604)
+}
+
+Bacillus_subtilis <- function(x) {
+  return(0.277*x+17471)
+}
+
+Bacillus_mycoides <- function(x) {
+  return(0.254*x+21567)
+}
+
+Paenibacillus_tritici <- function(x) {
+  return(0.263*x+23166)
+}
+
+Paenibacillus_pabuli <- function(x) {
+  return(0.277*x+24384)
+}
+
+average_curve <- function(x) {
+  return(0.272*x+22798)
+}
+
+x_values <- seq(0, 15000, length.out = 100)
+data <- data.frame(x = x_values)
+
+#plot the standard curves on the graph 
+  ggplot(data, aes(x=x)) +
+  geom_line(aes(y = Virdibacillus_arri(x), color = "Virdibacillus arri"), linewidth = 1) +
+    geom_line(aes(y =Lysinibacillus_fusiformis(x), color = "ysinibacillus fusiformis"), linewidth = 1) +
+    geom_line(aes(y = Bacillus_tropicus(x), color = "Bacillus tropicus"), linewidth = 1) +
+    geom_line(aes(y = Paenibacillus_chitinolyticus(x), color = "Paenibacillus chitinolyticus"), linewidth = 1) +
+    geom_line(aes(y = Bacillus_subtilis(x), color = "Bacillus subtilis"), linewidth = 1) +
+    geom_line(aes(y = Bacillus_mycoides(x), color = "Bacillus mycoides"), linewidth = 1) +
+    geom_line(aes(y = Paenibacillus_tritici(x), color = "Paenibacillus tritici"), linewidth = 1) +
+    geom_line(aes(y = Paenibacillus_pabuli(x), color = "Paenibacillus pabuli"), linewidth = 1) + 
+    geom_line(aes(y = average_curve(x), color = "Average curve"), linewidth = 1) +
+  labs(title = "Standard Curves", x = "Spore Count", y = "Fluorescence") +
+  theme_bw() +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme(text = element_text(family = 'serif', face = 'bold', size = 12))
+  
+  
+
+
+
+
+
+
+
+
+
 
 
 
