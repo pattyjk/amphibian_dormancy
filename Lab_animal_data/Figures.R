@@ -99,9 +99,13 @@ total_vs_viable_clean |>
                     labels = c("Viable Spore Count", "Total Spore Count"))
   
 
+# Stats 
+anova_result_tbcl <- aov(num_spore ~ total_vs_viable * Species, data = total_vs_viable_clean)
+summary(anova_result_tbcl)
 
-# Remove the Mucosome data
-tbcl_spores_filtered <- subset(total_vs_viable, !grepl("Mucosome", Type1, ignore.case = TRUE))
+# TukeyHSD to view differences by species 
+tukey_result_tbcl <- TukeyHSD(anova_result_tbcl, "Species", group = TRUE)
+print(tukey_result_tbcl)
 
 
 #### Cell Culture Figures #####
