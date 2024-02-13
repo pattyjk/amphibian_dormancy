@@ -12,6 +12,7 @@ library(ggplot2)
 library(tidyr)
 library(data.table)
 library(dplyr)
+library(agricolae)
 
 # Load in the needed data
 #TbCl Data 
@@ -57,6 +58,15 @@ ctc_dapi <-
   scale_fill_manual(values =c("Total_bacteria_red" = "#FF9999", "Total bacteria_blue" =  "#56B4E9" ),
                     labels = c("Stained with DAPI", "Stained with CTC"))
 
+# Stats 
+set.seed(12345)
+# run anova to compare effects of stain type and species 
+anova_result_stains <- aov(value ~ stain * Species, data = cell_stain_long)
+summary(anova_result_stains)
+
+# TukeyHSD to view differences by species 
+tukey_result_stain <- TukeyHSD(anova_result_stains, "Species", group = TRUE)
+print(tukey_result_stain)
 
 
 #### TbCL Figures ####
