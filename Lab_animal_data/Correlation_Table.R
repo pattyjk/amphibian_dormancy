@@ -38,6 +38,25 @@ cell_culture_frozen <-
   read_excel("lab_animal_data/data/CFU_cell_counts.xlsx", sheet =5)
 
 
+
+#### format data correctly ####
+
+cell_culture_frozen<- cell_culture_frozen |>
+  rename(Frozen_counts = 'CFU/ml_2/22')
+
+cell_culture_fresh<- cell_culture_fresh |>
+  rename(Fresh_counts = 'CFU/ml_2/22')
+
+# Cleaning Data table
+cell_culture_fresh <- cell_culture_fresh |>
+  select(Fresh_counts, `CFUs_2/22`, Sample_ID, Species, Common_name)
+
+cell_culture_frozen <- cell_culture_frozen |>
+  select(Frozen_counts, Sample_ID, Species, Common_name)
+
+#Combine the two data tables into one for making figures
+Cell_culture_combined <- 
+  bind_rows(cell_culture_fresh, cell_culture_frozen)
 #### Example ####
 
 #calculate correlations
@@ -52,16 +71,16 @@ str(dat)
 #the 'fresh_CFU' and 'Frozen_counts' to whatever column you're naming
 #under part 2, change the species to whatever you're comparing
 
-calculate_correlation <- function(factor_level, data) {
-  subset_data <- subset(data, Species == factor_level)
-  correlation_test <- cor.test(subset_data$Frozen_counts, subset_data$Fresh_CFU, method='spearman')
+calculate_correlation <- function(factor_level, Cell_culture_combined) {
+  subset_data <- subset(Cell_culture_combined, Species == factor_level)
+  correlation_test <- cor.test(subset_data$Frozen_counts, subset_data$Fresh_counts, method='spearman')
   return(correlation_test)
 }
 
 #Calculate correlation with p-value for each level of the factor
-factor_levels <- unique(data$Species)
+factor_levels <- unique(Cell_culture_combined$Species)
 correlation_results <- lapply(factor_levels, function(level) {
-  calculate_correlation(level, data)
+  calculate_correlation(level, Cell_culture_combined)
 })
 
 #view results
