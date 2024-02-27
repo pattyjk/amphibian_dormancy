@@ -16,7 +16,7 @@ meta<-read.delim("Lab_animal_data/data/endospore_map.txt", header=T, row.names =
 colSums(asv_table)
 
 #rarefy data 
-nut_rare<-rrarefy(t(asv_table), sample=107)
+nut_rare<-rrarefy(t(asv_table), sample=1)
 # loss of 3 samples 
 
 #calculate PCoA based on BC similarity
@@ -41,17 +41,16 @@ ko.coords<-merge(ko.coords, meta, by.x='SampleID', by.y='SampleID')
 #8
 
 #plot PCoA
-ggplot(ko.coords, aes(MDS1, MDS2, fill = Nuc_type))+
+ggplot(ko.coords, aes(MDS1, MDS2, color=Species))+
   geom_point(aes(size=2))+
   #geom_text()+
-  scale_color_manual(values = c('#f58231', '#4363d8'))+
   theme_bw()+
   guides(alpha = "none")+
   xlab("PC1- 10.6%")+
   ylab("PC2- 8%")
 
 
-#### TEST WTF AM I DOUNG ####
+#### TEST UHHHHHHHHHHHHHHHHHH ####
 
 #CALCULATE RICHNESS & add metadata & statistics
 larv.alph<-as.data.frame(specnumber(rrarefy(t(asv_table), sample=107)))
@@ -69,14 +68,14 @@ t.test(larv.alph$Shannon, larv.alph$Type2)
 # t = 15.044, df = 29, p-value < 3.116e-15
 
 #plot richness
-ggplot(larv.alph, aes(Nuc_type, Richness, fill=Nuc_type))+
+ggplot(larv.alph, aes(Species, Richness, fill=Species))+
   geom_jitter()+
   geom_boxplot()+
   theme_bw()+
   xlab("")+
   coord_flip()+
   ylab("sOTU Richness")+
-  scale_fill_manual(values = c('#f58231', '#4363d8'))
+  #scale_fill_manual(values = c('#f58231', '#4363d8'))
 
 
 
@@ -84,10 +83,13 @@ ggplot(larv.alph, aes(Nuc_type, Richness, fill=Nuc_type))+
 install.packages("BiocManager")
 BiocManager::install("phyloseq", force = T)
 library(phyloseq)
-library(rlan)
 
-physeq <- phyloseq(otu_table(asv_table, taxa_are_rows = TRUE), sample_data(meta))
-richness_vector <- estimate_richness(physeq, measures = "observed")
+taxonomy_table <- read.delim("Lab_animal_data/data/taxonomy.tsv", header = TRUE, row.names = 1)
+
+physeq <- phyloseq(otu_table(asv_table, taxa_are_rows = T), sample_data(meta))
+# richness_vector <- estimate_richness(physeq)
+plot_richness(physeq, measures = "Chao1")
+
 
 
 
