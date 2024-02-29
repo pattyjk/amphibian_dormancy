@@ -10,6 +10,7 @@ library(ggplot2)
 library(tidyr)
 library(dplyr)
 library(tidyverse)
+set.seed(1234)
 
 # load in the asv table from the cluster analysis 
 asv_table1 <- read.delim("Lab_animal_data/data/asv_table.txt", header=T)
@@ -34,8 +35,6 @@ asv_table <- replace(asv_table, is.na(asv_table), 0)
 meta <- bind_rows(meta1, meta2, meta3) |>
   distinct()
 
-#fix formatting
-meta <- column_to_rownames(meta, var ="SampleID")
 
 #look at sequencing depth
 colSums(asv_table)
@@ -72,7 +71,8 @@ ggplot(ko.coords, aes(MDS1, MDS2, color=Species))+
   theme_bw()+
   guides(alpha = "none")+
   xlab("PC1- 10%")+
-  ylab("PC2- 7.2%")
+  ylab("PC2- 7.2%") +
+  stat_ellipse(aes(group = Species), type = "norm", level = 0.95, linetype = "dashed")
 
 
 #### OTU Richness ####
@@ -113,6 +113,10 @@ ggplot(larv.alph, aes(Species, Shannon, fill=Species))+
   coord_flip()+
   ylab("Shannon Diversity")
   #scale_fill_manual(values = c('#f58231', '#4363d8'))
+
+#### Lattitude versus Spores ####
+
+
 
 
 
