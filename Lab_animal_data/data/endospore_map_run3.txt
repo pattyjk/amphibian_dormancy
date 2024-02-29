@@ -1,0 +1,11 @@
+SampleID	BarcodeSequence	LinkerPrimerSequence	Sample_identifier	Species	Plate	Well	Nuc_type	Description
+NoVi1.DNA	GTAGTAGA	GTGTGYCAGCMGCCGCGGTAA	6	Notophthalmus viridescens	5	C2	DNA	NoVi1
+NoVi2.RNA	CCGGACAA	GTGTGYCAGCMGCCGCGGTAA	12	Notophthalmus viridescens	5	H3	RNA	NoVi2
+NoVi3.DNA	ACTCCCGT	GTGTGYCAGCMGCCGCGGTAA	17	Notophthalmus viridescens	5	A5	DNA	NoVi3
+NoVi4.RNA	TAATCTCG	GTGTGYCAGCMGCCGCGGTAA	17	Notophthalmus viridescens	5	B5	RNA	NoVi4
+NoVi5.DNA	TTGCTGGA	GTGTGYCAGCMGCCGCGGTAA	18	Notophthalmus viridescens	5	C5	DNA	NoVi5
+NoVi1.RNA	ACGCTTAA	GTGTGYCAGCMGCCGCGGTAA	18	Notophthalmus viridescens	5	D5	RNA	NoVi1
+NoVi2.DNA	TGATGTGC	GTGTGYCAGCMGCCGCGGTAA	19	Notophthalmus viridescens	5	E5	DNA	NoVi2
+NoVi3.RNA	GAAGAGGG	GTGTGYCAGCMGCCGCGGTAA	19	Notophthalmus viridescens	5	F5	RNA	NoVi3
+NoVi4.DNA	AAGAACTC	GTGTGYCAGCMGCCGCGGTAA	20	Notophthalmus viridescens	5	G5	DNA	NoVi4
+NoVi5.RNA	AATTCACC	GTGTGYCAGCMGCCGCGGTAA	20	Notophthalmus viridescens	5	H5	RNA	NoVi5

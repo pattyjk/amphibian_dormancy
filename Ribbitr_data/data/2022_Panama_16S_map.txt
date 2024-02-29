@@ -1,0 +1,97 @@
+SampleID	BarcodeSequence	LinkerPrimerSequence	BcName	Type	RIBBITR_ID	Species	Date	Location	region	site	Description
+Pan1.DNA	ATGTTAGG	GTGTGYCAGCMGCCGCGGTAA	515rcbc384	DNA	221212_016	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan1.DNA
+Pan2.DNA	AAGTGGCT		515rcbc396	DNA	221129_003	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan2.DNA
+Pan3.DNA	GTCGTTAC		515rcbc408	DNA	221212_022	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan3.DNA
+Pan4.DNA	AGTATATG		515rcbc420	DNA	221127_neg	Negative control	11/2022	Panama	N/A	N/A	Pan4.DNA
+Pan5.DNA	GGCTCGTC		515rcbc432	DNA	221127_J016	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan5.DNA
+Pan6.DNA	GACATCTG		515rcbc444	DNA	221212_neg	Negative control	12/2022	Panama	N/A	N/A	Pan6.DNA
+Pan7.DNA	AATTTCCT		515rcbc456	DNA	221210_C004	Colostethus panamansis	11/2022	Panama	El Cope	Guabal	Pan7.DNA
+Pan8.DNA	ATAAACGG		515rcbc468	DNA	221208_013	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan8.DNA
+Pan9.DNA	GCTAGTTA		515rcbc385	DNA	221212_014	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan9.DNA
+Pan10.DNA	ACTAGTTG		515rcbc397	DNA	221129_004	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan10.DNA
+Pan11.DNA	CGCAAGCC		515rcbc409	DNA	221212_017	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan11.DNA
+Pan12.DNA	AGAGCGGA		515rcbc421	DNA	221120_005	Colostethus panamansis	11/2022	Panama	El Cope	Guabal	Pan12.DNA
+Pan13.DNA	ACATGGGC		515rcbc433	DNA	221212_021	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan13.DNA
+Pan14.DNA	CTGCGGAT		515rcbc445	DNA	221129_002	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan14.DNA
+Pan15.DNA	GTGAGGGC		515rcbc457	DNA	221208_016	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan15.DNA
+Pan16.DNA	ATATTGGC		515rcbc469	DNA	221208_006	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan16.DNA
+Pan17.DNA	TCATCCGT		515rcbc386	DNA	221127_J017	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan17.DNA
+Pan18.DNA	GGCTTCGG		515rcbc398	DNA	221212_025	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan18.DNA
+Pan19.DNA	CGGTCAAT		515rcbc410	DNA	221212_020	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan19.DNA
+Pan20.DNA	TCCGCTGC		515rcbc422	DNA	221208_008	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan20.DNA
+Pan21.DNA	TGCGCGCC		515rcbc434	DNA	221127_J014	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan21.DNA
+Pan22.DNA	GCGCACAC		515rcbc446	DNA	221208_014	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan22.DNA
+Pan23.DNA	CACGAAAG		515rcbc458	DNA	221210_C003	Colostethus panamansis	11/2022	Panama	El Cope	Guabal	Pan23.DNA
+Pan24.DNA	CGTGGCTT		515rcbc470	DNA	221210_C006	Colostethus panamansis	11/2022	Panama	El Cope	Guabal	Pan24.DNA
+Pan25.DNA	ATTTGGCT		515rcbc387	DNA	221212_015	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan25.DNA
+Pan26.DNA	CGCGTCAA		515rcbc399	DNA	221127_J019	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan26.DNA
+Pan27.DNA	ATGTTCCT		515rcbc411	DNA	Extract_ctrl	N/A	N/A	Panama	N/A	N/A	Pan27.DNA
+Pan28.DNA	TCCGTGGT		515rcbc423	DNA	221208_018	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan28.DNA
+Pan29.DNA	GTTGGTTG		515rcbc435	DNA	221127_J013	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan29.DNA
+Pan30.DNA	AACGGGCG		515rcbc447	DNA	221212_023	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan30.DNA
+Pan31.DNA	TACTGAGC		515rcbc459	DNA	221208_017	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan31.DNA
+Pan32.DNA	GGTGCAGA		515rcbc471	DNA	221208_005	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan32.DNA
+Pan33.DNA	GATCCGGC		515rcbc388	DNA	221212_004	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan33.DNA
+Pan34.DNA	CTTCCAAC		515rcbc400	DNA	221212_019	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan34.DNA
+Pan35.DNA	CGACCTCG		515rcbc412	DNA	221208_012	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan35.DNA
+Pan36.DNA	GTCAGAGT		515rcbc424	DNA	221129_005	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan36.DNA
+Pan37.DNA	GAACGATC		515rcbc436	DNA	221212_026	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan37.DNA
+Pan38.DNA	CTCCACAT		515rcbc448	DNA	221208_009	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan38.DNA
+Pan39.DNA	TCTTCGCA		515rcbc460	DNA	221208_007	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan39.DNA
+Pan40.DNA	CACGCTAT		515rcbc472	DNA	PCR_neg	N/A	N/A	Panama	N/A	N/A	Pan40.DNA
+Pan41.DNA	GTTAAGCT		515rcbc389	DNA	221127_J018	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan41.DNA
+Pan42.DNA	GCCTAGCC		515rcbc401	DNA	221212_018	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan42.DNA
+Pan43.DNA	CATTCGTG		515rcbc413	DNA	221208_015	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan43.DNA
+Pan44.DNA	GCGGTCGG		515rcbc425	DNA	221208_010	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan44.DNA
+Pan45.DNA	TCAGTCAG		515rcbc437	DNA	221127_J015	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan45.DNA
+Pan46.DNA	CGAACGTC		515rcbc449	DNA	221208_004	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan46.DNA
+Pan47.DNA	CAGTCCCT		515rcbc461	DNA	221208_011	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan47.DNA
+Pan48.DNA	TGATTTAA		515rcbc473	DNA	221212_024	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan48.DNA
+Pan1.RNA	CCTATTGC		515rcbc390	RNA	221212_016	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan1.RNA
+Pan2.RNA	GTTAGGGA		515rcbc402	RNA	221129_003	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan2.RNA
+Pan3.RNA	AGTACGCA		515rcbc414	RNA	221212_022	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan3.RNA
+Pan4.RNA	TATCCTGG		515rcbc426	RNA	221127_neg	Negative control	11/2022	Panama	N/A	N/A	Pan4.RNA
+Pan5.RNA	CTGGTCTT		515rcbc438	RNA	221127_J016	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan5.RNA
+Pan6.RNA	ATGCCGGT		515rcbc450	RNA	221212_neg	Negative control	12/2022	Panama	N/A	N/A	Pan6.RNA
+Pan7.RNA	ATCAAGAT		515rcbc462	RNA	221210_C004	Colostethus panamansis	11/2022	Panama	El Cope	Guabal	Pan7.RNA
+Pan8.RNA	CTGAGGCC		515rcbc474	RNA	221208_013	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan8.RNA
+Pan9.RNA	CAATAGAA		515rcbc391	RNA	221212_014	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan9.RNA
+Pan10.RNA	TATACCGC		515rcbc403	RNA	221129_004	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan10.RNA
+Pan11.RNA	CAGTGCAC		515rcbc415	RNA	221212_017	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan11.RNA
+Pan12.RNA	CTGGTGCT		515rcbc427	RNA	221120_005	Colostethus panamansis	11/2022	Panama	El Cope	Guabal	Pan12.RNA
+Pan13.RNA	ACAAAGGT		515rcbc439	RNA	221212_021	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan13.RNA
+Pan14.RNA	TGAACCCT		515rcbc451	RNA	221129_002	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan14.RNA
+Pan15.RNA	AATAAGCA		515rcbc463	RNA	221208_016	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan15.RNA
+Pan16.RNA	TATGGGTA		515rcbc475	RNA	221208_006	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan16.RNA
+Pan17.RNA	ACATAGCG		515rcbc392	RNA	221127_J017	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan17.RNA
+Pan18.RNA	CTTACACT		515rcbc404	RNA	221212_025	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan18.RNA
+Pan19.RNA	ACTCACAG		515rcbc416	RNA	221212_020	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan19.RNA
+Pan20.RNA	GTTGAAGC		515rcbc428	RNA	221208_008	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan20.RNA
+Pan21.RNA	GTAAACGA		515rcbc440	RNA	221127_J014	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan21.RNA
+Pan22.RNA	TTGGACGT		515rcbc452	RNA	221208_014	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan22.RNA
+Pan23.RNA	GCACGCGA		515rcbc464	RNA	221210_C003	Colostethus panamansis	11/2022	Panama	El Cope	Guabal	Pan23.RNA
+Pan24.RNA	CTTAGGCA		515rcbc476	RNA	221210_C006	Colostethus panamansis	11/2022	Panama	El Cope	Guabal	Pan24.RNA
+Pan25.RNA	GCGTGGTC		515rcbc393	RNA	221212_015	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan25.RNA
+Pan26.RNA	CCTGCACC		515rcbc405	RNA	221127_J019	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan26.RNA
+Pan27.RNA	TGGTGTTT		515rcbc417	RNA	Extract_ctrl	N/A	N/A	Panama	N/A	N/A	Pan27.RNA
+Pan28.RNA	GTGCGGTT		515rcbc429	RNA	221208_018	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan28.RNA
+Pan29.RNA	TAGCGCGA		515rcbc441	RNA	221127_J013	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan29.RNA
+Pan30.RNA	ATGTAGGC		515rcbc453	RNA	221212_023	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan30.RNA
+Pan31.RNA	GCATTACT		515rcbc465	RNA	221208_017	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan31.RNA
+Pan32.RNA	TCCGGACT		515rcbc477	RNA	221208_005	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan32.RNA
+Pan33.RNA	GATTCTTT		515rcbc394	RNA	221212_004	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan33.RNA
+Pan34.RNA	AGGACAAA		515rcbc406	RNA	221212_019	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan34.RNA
+Pan35.RNA	TCTTCCTA		515rcbc418	RNA	221208_012	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan35.RNA
+Pan36.RNA	CTTGTGCG		515rcbc430	RNA	221129_005	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan36.RNA
+Pan37.RNA	GCGCTTAG		515rcbc442	RNA	221212_026	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan37.RNA
+Pan38.RNA	AGAGGAGT		515rcbc454	RNA	221208_009	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan38.RNA
+Pan39.RNA	GTCTCCTC		515rcbc466	RNA	221208_007	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan39.RNA
+Pan40.RNA	AGTATCAT		515rcbc478	RNA	PCR_neg	N/A	N/A	Panama	N/A	N/A	Pan40.RNA
+Pan41.RNA	CGGATCTA		515rcbc395	RNA	221127_J018	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan41.RNA
+Pan42.RNA	ATAACGGT		515rcbc407	RNA	221212_018	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan42.RNA
+Pan43.RNA	GCCCTTCC		515rcbc419	RNA	221208_015	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan43.RNA
+Pan44.RNA	CACAGTTG		515rcbc431	RNA	221208_010	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan44.RNA
+Pan45.RNA	GCAAAGGC		515rcbc443	RNA	221127_J015	Lithobates warzsewitschii	11/2022	Panama	Santa Fe	Altos de Piedra	Pan45.RNA
+Pan46.RNA	CTCCCACT		515rcbc455	RNA	221208_004	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan46.RNA
+Pan47.RNA	AATAGATG		515rcbc467	RNA	221208_011	Colostethus panamansis	12/2022	Panama	Campana	Rabbit	Pan47.RNA
+Pan48.RNA	AACGCTTC		515rcbc479	RNA	221212_024	Lithobates warzsewitschii	12/2022	Panama	El Valle	Campestre	Pan48.RNA
