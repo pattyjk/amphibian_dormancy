@@ -11,6 +11,7 @@ library(readr)
 library(readxl)
 library(ggplot2)
 library(tidyr)
+library(dplyr)
 
 # Load in the needed data
 #TbCl Data 
@@ -56,14 +57,14 @@ cell_culture_frozen <- cell_culture_frozen |>
 
 #Combine the two data tables into one for making figures
 Cell_culture_combined <- 
-  bind_rows(cell_culture_fresh, cell_culture_frozen)
+  merge(cell_culture_fresh, cell_culture_frozen, by = c("Species", "Sample_ID"))
+
+Cell_culture_combined <-
+  Cell_culture_combined |>
+  select(Fresh_counts, Frozen_counts, Sample_ID, Species)
 #### Example ####
 
 #calculate correlations
-
-#read in data
-data<-read.delim("amphibian_dormancy/sample_data.txt", header=T)
-str(dat)
 
 ##write a function to do the calculation (SPearman correlation)
 #parts to change: 
@@ -71,6 +72,8 @@ str(dat)
 #the 'fresh_CFU' and 'Frozen_counts' to whatever column you're naming
 #under part 2, change the species to whatever you're comparing
 
+
+#### CELL CULTURE DATA ####
 calculate_correlation <- function(factor_level, Cell_culture_combined) {
   subset_data <- subset(Cell_culture_combined, Species == factor_level)
   correlation_test <- cor.test(subset_data$Frozen_counts, subset_data$Fresh_counts, method='spearman')
@@ -85,6 +88,22 @@ correlation_results <- lapply(factor_levels, function(level) {
 
 #view results
 correlation_results
+
+#### TBCL ASSAY DATA ####
+
+# data cleaning 
+
+calculate_correlation <- function(factor_level, Cell_culture_combined) {
+  subset_data <- subset(Cell_culture_combined, Species == factor_level)
+  correlation_test <- cor.test(subset_data$Frozen_counts, subset_data$Fresh_counts, method='spearman')
+  return(correlation_test)
+}
+
+#Calculate correlation with p-value for each level of the factor
+factor_levels <- unique(Cell_culture_combined$Species)
+correlation_results <- lapply(factor_levels, function(level) {
+  calculate_correlation(level, Cell_culture_combined)
+})
 
 
 

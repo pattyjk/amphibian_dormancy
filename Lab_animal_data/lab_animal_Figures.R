@@ -1,7 +1,7 @@
 #----------------------------
 #
 # Andrew Miller-Klugman
-# Fresh versus Frozen Data Figures
+# Lab Animal Data Figures
 #
 #----------------------------
 

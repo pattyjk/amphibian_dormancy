@@ -114,7 +114,7 @@ ggplot(larv.alph, aes(Species, Shannon, fill=Species))+
   ylab("Shannon Diversity")
   #scale_fill_manual(values = c('#f58231', '#4363d8'))
 
-#### Lattitude versus Spores ####
+
 
 
 
