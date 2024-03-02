@@ -178,10 +178,10 @@ average_curve <- function(x) {
 }
 
 x_values <- seq(0, 15000, length.out = 100)
-data <- data.frame(x = x_values)
+df <- data.frame(x = x_values)
 
 #plot the standard curves on the graph 
-  ggplot(data, aes(x=x)) +
+  ggplot(df, aes(x=x)) +
   geom_line(aes(y = Virdibacillus_arri(x), color = "Virdibacillus arri"), linewidth = 1) +
     geom_line(aes(y =Lysinibacillus_fusiformis(x), color = "ysinibacillus fusiformis"), linewidth = 1) +
     geom_line(aes(y = Bacillus_tropicus(x), color = "Bacillus tropicus"), linewidth = 1) +
@@ -195,11 +195,38 @@ data <- data.frame(x = x_values)
   theme_bw() +
     theme(plot.title = element_text(hjust = 0.5)) +
     theme(text = element_text(family = 'serif', face = 'bold', size = 12))
+
+#### TEST ####
+  # Function to apply a formula to random values of x
+  apply_formula <- function(x, formula) {
+    data.frame(x = x, y = eval(parse(text = formula), envir = list(x = x)))  # Apply the formula and create a data frame
+  }
   
+  # Formulas to be applied
+  species_formulas <- data.frame(species = c("average_curve", "Paenibacillus pabuli", "Paenibacillus tritici", 
+                                             "Bacillus mycoides", "Bacillus subtilis","Paenibacillus chitinolyticus",
+                                             "Bacillus_ tropicus", "Lysinibacillus fusiformis", "Virdibacillus arri"),
+  formulas <- c("0.272*x+22798", "0.277*x+24384", "0.263*x+23166", "0.254*x+21567", 
+                "0.277*x+17471", "0.291*x+25604", "0.291*x+27622", "0.291*x+21181", 
+                "0.272 * x + 23898")
+  )
   
-
-
-
+ # Generate random x values
+  x_values <- runif(100, 0, 15000)
+  
+  # Apply formulas and create a data frame
+  result_df <- map2_df(species_formulas$formula, species_formulas$species, ~ apply_formula(x_values, .x) |>
+                         mutate(species = .y, formula = .x))
+  
+  # Print the result
+  print(result_df)
+  
+ # make a plot with error bars using the newly created data
+  result_df |>
+    ggplot(aes(x=x, y=y, color = species)) +
+    geom_point()+
+    geom_smooth(method="lm") +
+    theme_minimal()
 
 
 

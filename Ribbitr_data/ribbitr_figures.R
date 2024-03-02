@@ -23,12 +23,12 @@ ribbitr_cell_count <- read_xlsx("Ribbitr_data/data/RIBBiTR_CFUS.xlsx")
 
 #data cleaning 
 names(ribbitr_cell_count)[names(ribbitr_cell_count) == "CFU_bact"] <- "CFU_ml"
-names(ribbitr_cell_count)[names(ribbitr_cell_count) == "Percent_spore"] <- "per_spore" 
+names(ribbitr_cell_count)[names(ribbitr_cell_count) == "Percent_spore"] <- "Per_spore" 
 panama_counts$Location <- "Panama"
 
 cell_counts_clean <-
   ribbitr_cell_count |>
-  select("RIBBiTR_ID", "Species", "CFU_ml", "CFU_past", "per_spore", "Location")
+  select("RIBBiTR_ID", "Species", "CFU_ml", "CFU_past", "Per_spore", "Location")
 
 cell_counts_total <- bind_rows(cell_counts_clean, panama_counts)
 
@@ -38,15 +38,17 @@ cell_counts_total  |>
   geom_boxplot()
 
 #boxplot of pasteurized CFUs
-cell_counts |>
-  ggplot( aes(Species...5, CFU_past, fill = Location...2)) +
+cell_counts_total |>
+  ggplot( aes(Species, CFU_past, fill = Location)) +
   geom_boxplot()
-  
+
+
 # Boxplot of %spore forming bacteria 
-cell_counts |>
-  ggplot(aes(Species...5, Percent_spore, fill = Location...2)) +
+cell_counts_total |>
+  ggplot(aes(Species, Per_spore, fill = Location)) +
   geom_boxplot(outlier.shape = NA, outlier.colour = NA) +
   scale_y_continuous(limits = c(0,10))
+  
 
 # Percent_spore by month
 cell_counts |>
