@@ -139,67 +139,9 @@ Cell_culture_combined |>
 
 
 #### Standard Curve Graph ####
-
-#create functions for each standard curve
-Virdibacillus_arri <- function (x) {
-   return(0.272 * x + 23898)
-}
-
-Lysinibacillus_fusiformis <- function(x) {
-  return(0.291*x+21181)
-}
-
-Bacillus_tropicus <- function(x) {
-  return(0.291*x+27622)
-}
-
-Paenibacillus_chitinolyticus <- function(x) {
-  return(0.291*x+25604)
-}
-
-Bacillus_subtilis <- function(x) {
-  return(0.277*x+17471)
-}
-
-Bacillus_mycoides <- function(x) {
-  return(0.254*x+21567)
-}
-
-Paenibacillus_tritici <- function(x) {
-  return(0.263*x+23166)
-}
-
-Paenibacillus_pabuli <- function(x) {
-  return(0.277*x+24384)
-}
-
-average_curve <- function(x) {
-  return(0.272*x+22798)
-}
-
-x_values <- seq(0, 15000, length.out = 100)
-df <- data.frame(x = x_values)
-
-#plot the standard curves on the graph 
-  ggplot(df, aes(x=x)) +
-  geom_line(aes(y = Virdibacillus_arri(x), color = "Virdibacillus arri"), linewidth = 1) +
-    geom_line(aes(y =Lysinibacillus_fusiformis(x), color = "ysinibacillus fusiformis"), linewidth = 1) +
-    geom_line(aes(y = Bacillus_tropicus(x), color = "Bacillus tropicus"), linewidth = 1) +
-    geom_line(aes(y = Paenibacillus_chitinolyticus(x), color = "Paenibacillus chitinolyticus"), linewidth = 1) +
-    geom_line(aes(y = Bacillus_subtilis(x), color = "Bacillus subtilis"), linewidth = 1) +
-    geom_line(aes(y = Bacillus_mycoides(x), color = "Bacillus mycoides"), linewidth = 1) +
-    geom_line(aes(y = Paenibacillus_tritici(x), color = "Paenibacillus tritici"), linewidth = 1) +
-    geom_line(aes(y = Paenibacillus_pabuli(x), color = "Paenibacillus pabuli"), linewidth = 1) + 
-    geom_line(aes(y = average_curve(x), color = "Average curve"), linewidth = 1) +
-  labs(title = "Standard Curves", x = "Spore Count", y = "Fluorescence") +
-  theme_bw() +
-    theme(plot.title = element_text(hjust = 0.5)) +
-    theme(text = element_text(family = 'serif', face = 'bold', size = 12))
-
-#### TEST ####
-  # Function to apply a formula to random values of x
+# create a function to apply the formula to x values
   apply_formula <- function(x, formula) {
-    data.frame(x = x, y = eval(parse(text = formula), envir = list(x = x)))  # Apply the formula and create a data frame
+    data.frame(x = x, y = eval(parse(text = formula), envir = list(x = x))) 
   }
   
   # Formulas to be applied
@@ -217,14 +159,14 @@ df <- data.frame(x = x_values)
   # Apply formulas and create a data frame
   result_df <- map2_df(species_formulas$formula, species_formulas$species, ~ apply_formula(x_values, .x) |>
                          mutate(species = .y, formula = .x))
-  
+
   # Print the result
   print(result_df)
   
  # make a plot with error bars using the newly created data
   result_df |>
-    ggplot(aes(x=x, y=y, color = species)) +
-    geom_point()+
+    ggplot(aes(x=x, y=y, color = species, group = species)) +
+    geom_line()+
     geom_smooth(method="lm") +
     theme_minimal()
 
