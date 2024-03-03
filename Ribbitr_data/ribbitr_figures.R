@@ -45,9 +45,10 @@ cell_counts_total |>
 
 # Boxplot of %spore forming bacteria 
 cell_counts_total |>
-  ggplot(aes(Species, Per_spore, fill = Location)) +
+  ggplot(aes(Species, (100*(CFU_past/CFU_ml)), fill = Location)) +
   geom_boxplot(outlier.shape = NA, outlier.colour = NA) +
-  scale_y_continuous(limits = c(0,10))
+  scale_y_continuous(limits = c(0,10)) +
+  ylab("% Culutrable Spore Forming Bacteria")
   
 
 # Percent_spore by month

@@ -41,6 +41,10 @@ cell_culture_fresh <-
 cell_culture_frozen <-
   read_excel("lab_animal_data/data/CFU_cell_counts.xlsx", sheet =5)
 
+cfu_past_fresh <- read_excel("lab_animal_data/data/CFU_cell_counts.xlsx", sheet =2) |>
+  mutate(SampleType = "Fresh")
+cfu_past_frozen <- read_excel("lab_animal_data/data/CFU_cell_counts.xlsx", sheet =6)|>
+  mutate(SampleType = "Frozen")
 
 
 #### Cell Stain Figures ####
@@ -137,6 +141,22 @@ Cell_culture_combined |>
   geom_boxplot() +
   theme_bw()
 
+# combine fresh and frozen pasteurization dataframes
+cell_count_past <- bind_rows(cfu_past_fresh, cfu_past_frozen)
+View(cell_count_past)
+
+# merge the past data with the full culture data to measure percent of total 
+cell_count_past_per <- merge(Cell_culture_combined, cell_count_past) 
+View(cell_count_past_per)
+
+# graph percent of total that are spore forming bacteria 
+cell_count_past_per |>
+  ggplot(aes(x = Species, y = (100*(CFU_ml/`CFU/ml_2/22`)), fill = SampleType)) +
+  geom_boxplot() +
+  ylab("% Culturable Spore Forming Bacteria")
+  
+
+
 
 #### Standard Curve Graph ####
 # create a function to apply the formula to x values
@@ -160,8 +180,8 @@ Cell_culture_combined |>
   result_df <- map2_df(species_formulas$formula, species_formulas$species, ~ apply_formula(x_values, .x) |>
                          mutate(species = .y, formula = .x))
 
-  # Print the result
-  print(result_df)
+ #vizualize result
+  View(result_df)
   
  # make a plot with error bars using the newly created data
   result_df |>
