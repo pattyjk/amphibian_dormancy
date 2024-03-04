@@ -90,19 +90,10 @@ correlation_results <- lapply(factor_levels, function(level) {
 correlation_results
 
 #### TBCL ASSAY DATA ####
-
-# data cleaning 
-
-calculate_correlation <- function(factor_level, Cell_culture_combined) {
-  subset_data <- subset(Cell_culture_combined, Species == factor_level)
-  correlation_test <- cor.test(subset_data$Frozen_counts, subset_data$Fresh_counts, method='spearman')
-  return(correlation_test)
-}
-
 #Calculate correlation with p-value for each level of the factor
-factor_levels <- unique(Cell_culture_combined$Species)
+factor_levels <- unique(frozen_fresh_tbcl$Species)
 correlation_results <- lapply(factor_levels, function(level) {
-  calculate_correlation(level, Cell_culture_combined)
+  calculate_correlation(level, frozen_fresh_tbcl)
 })
 
 

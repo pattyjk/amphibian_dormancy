@@ -90,10 +90,13 @@ total_vs_viable_clean <-
   mutate(num_spore = (Fluor_reading-22798)/0.272)
 
 #remove the negative values from the spore counts
+ ## total_vs_viable_clean <-
+  ## total_vs_viable_clean |>
+  ## filter(num_spore >= 0)
+
 total_vs_viable_clean <-
   total_vs_viable_clean |>
-  filter(num_spore >= 0)
-
+  mutate(fresh_vs_frozen = "Fresh")
 
 #plotting the measure of viable versus total spore counts 
 total_vs_viable_clean |>
@@ -101,7 +104,64 @@ total_vs_viable_clean |>
   geom_boxplot() + 
   scale_fill_manual(values =c("Total_fluor" = "#FF9999", "Viable_fluor" =  "#56B4E9" ),
                     labels = c("Viable Spore Count", "Total Spore Count"))
-  
+
+# combine fresh versus frozen data for both total and viable spores
+frozen_spore_total <- frozen_spore_total[-1, ]
+frozen_spore_total$SampleID <- as.numeric(frozen_spore_total$SampleID)
+
+# adds a species column based on the recorded sampleID
+frozen_spore_total <- frozen_spore_total |>
+  mutate(Species = case_when(
+    SampleID <=5 ~ "Salamandra salamandra",
+    SampleID > 5 & SampleID <= 10 ~ "Ambystoma maculatum",
+    SampleID > 10 & SampleID <=15 ~ "Bombina orientalis",
+    SampleID > 15 & SampleID <=20 ~ "Notophthalmus viridescens",
+    SampleID > 20 & SampleID <=25 ~ "Litoria caerulea",
+    SampleID > 25 & SampleID <=30 ~ "Eurycea wilderae"
+  ))
+
+# changes dataframe names to match other table for merging 
+frozen_spore_total <- frozen_spore_total |>
+  mutate(Fluor_reading = "Frozen")
+frozen_spore_total <- setNames(frozen_spore_total, c("Well Row", "Well Col", "Content", "Frozen_fluor", 
+                                                     "Type", "SampleID", "num_spore", "Species", "fresh_vs_frozen"))
+
+# repeates steps for the viable frozen spore data
+frozen_spore_viable <- frozen_spore_viable[-1, ]
+frozen_spore_viable$SampleID <- as.numeric(frozen_spore_viable$SampleID)
+
+# adds a species column based on the recorded sampleID
+frozen_spore_viable <- frozen_spore_viable |>
+  mutate(Species = case_when(
+    SampleID <=5 ~ "Salamandra salamandra",
+    SampleID > 5 & SampleID <= 10 ~ "Ambystoma maculatum",
+    SampleID > 10 & SampleID <=15 ~ "Bombina orientalis",
+    SampleID > 15 & SampleID <=20 ~ "Notophthalmus viridescens",
+    SampleID > 20 & SampleID <=25 ~ "Litoria caerulea",
+    SampleID > 25 & SampleID <=30 ~ "Eurycea wilderae"
+  ))
+
+# changes dataframe names to match other table for merging 
+frozen_spore_viable <- frozen_spore_viable |>
+  mutate(Type2 = "Frozen")
+frozen_spore_viable <- setNames(frozen_spore_viable, c("Well Row", "Well Col", "Content", "Frozen_fluor",
+                                                       "Type", "SampleID", "num_spore", "Species", "fresh_vs_frozen")) 
+
+# create one frozen spore dataframe 
+frozen_spore_combine <- bind_rows(frozen_spore_total, frozen_spore_viable)
+frozen_spore_combine <- na.omit(frozen_spore_combine)
+
+frozen_spore_combine <- frozen_spore_combine |>
+  mutate(total_vs_viable = case_when(
+  Type == "Swab_total" ~ "Total_fluor",
+  Type == "Swab_viable" ~ "Viable_fluor",
+  ))
+
+# remove all negative spore values
+frozen_spore_combine <-
+  frozen_spore_combine
+frozen_spore_combine$num_spore <- as.numeric(frozen_spore_combine$num_spore)
+ 
 
 # Stats 
 anova_result_tbcl <- aov(num_spore ~ total_vs_viable * Species, data = total_vs_viable_clean)
@@ -189,7 +249,7 @@ cell_count_past_per |>
     geom_line()+
     geom_smooth(method="lm") +
     theme_minimal()
-
+  
 
 
 
