@@ -77,7 +77,12 @@ Cell_culture_combined <-
 calculate_correlation <- function(factor_level, Cell_culture_combined) {
   subset_data <- subset(Cell_culture_combined, Species == factor_level)
   correlation_test <- cor.test(subset_data$Frozen_counts, subset_data$Fresh_counts, method='spearman')
-  return(correlation_test)
+  result <- list(
+    Species = factor_level,
+    Correlation_Test = correlation_test
+  )
+  
+  return(result)
 }
 
 #Calculate correlation with p-value for each level of the factor
@@ -91,10 +96,40 @@ correlation_results
 
 #### TBCL ASSAY DATA ####
 #Calculate correlation with p-value for each level of the factor
-factor_levels <- unique(frozen_fresh_tbcl$Species)
-correlation_results <- lapply(factor_levels, function(level) {
-  calculate_correlation(level, frozen_fresh_tbcl)
+
+fresh_frozen_tbcl <- read.delim("~/Mircobiome Lab/Microbiome Lab Data Analysis/amphibian_dormancy/Lab_animal_data/data/fresh_frozen_TbCl.txt",
+                                sep = "\t", header = T)
+                                
+# remove mucosome data 
+fresh_frozen_tbcl <- fresh_frozen_tbcl |>
+  filter(Type1 != 'Mucosome')
+fresh_frozen_tbcl <- fresh_frozen_tbcl |>
+  as.numeric(fresh_frozen_tbcl$Froz_fluor)
+
+# seperate tables in viable versus total 
+fresh_frozen_tbcl_total <- fresh_frozen_tbcl |>
+  filter(Type != 'Swab_total')
+fresh_frozen_tbcl_viable <- fresh_frozen_tbcl |>
+  filter(Type != 'Swab_viable')
+
+# correlation for swab total
+calculate_correlation_tbcl <- function(factor_level, fresh_frozen_tbcl_total) {
+  subset_data_tbcl <- subset(fresh_frozen_tbcl_total, Species == factor_level)
+  correlation_test_tbcl <- cor.test(subset_data_tbcl$Froz_fluor, subset_data_tbcl$Fresh_fluor, method='spearman')
+ 
+   result <- list(
+    Species = factor_level,
+    Correlation_Test = correlation_test_tbcl
+  )
+  
+  return(result)
+}
+
+factor_levels <- unique(fresh_frozen_tbcl_total$Species)
+correlation_results_tbcl <- lapply(factor_levels, function(level) {
+  calculate_correlation_tbcl(level, fresh_frozen_tbcl_total)
 })
+correlation_results_tbcl
 
 
 
