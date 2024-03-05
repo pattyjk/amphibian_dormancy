@@ -43,7 +43,7 @@ cell_culture_frozen <-
 #### format data correctly ####
 
 cell_culture_frozen<- cell_culture_frozen |>
-  rename(Frozen_counts = 'CFU/ml_2/22')
+  rename(Frozen_counts = `CFU/ml...3`)
 
 cell_culture_fresh<- cell_culture_fresh |>
   rename(Fresh_counts = 'CFU/ml_2/22')
@@ -57,7 +57,7 @@ cell_culture_frozen <- cell_culture_frozen |>
 
 #Combine the two data tables into one for making figures
 Cell_culture_combined <- 
-  merge(cell_culture_fresh, cell_culture_frozen, by = c("Species", "Sample_ID"))
+  merge(cell_culture_fresh, cell_culture_frozen)
 
 Cell_culture_combined <-
   Cell_culture_combined |>
@@ -77,6 +77,7 @@ Cell_culture_combined <-
 calculate_correlation <- function(factor_level, Cell_culture_combined) {
   subset_data <- subset(Cell_culture_combined, Species == factor_level)
   correlation_test <- cor.test(subset_data$Frozen_counts, subset_data$Fresh_counts, method='spearman')
+  
   result <- list(
     Species = factor_level,
     Correlation_Test = correlation_test
@@ -103,8 +104,6 @@ fresh_frozen_tbcl <- read.delim("~/Mircobiome Lab/Microbiome Lab Data Analysis/a
 # remove mucosome data 
 fresh_frozen_tbcl <- fresh_frozen_tbcl |>
   filter(Type1 != 'Mucosome')
-fresh_frozen_tbcl <- fresh_frozen_tbcl |>
-  as.numeric(fresh_frozen_tbcl$Froz_fluor)
 
 # seperate tables in viable versus total 
 fresh_frozen_tbcl_total <- fresh_frozen_tbcl |>
@@ -113,23 +112,90 @@ fresh_frozen_tbcl_viable <- fresh_frozen_tbcl |>
   filter(Type != 'Swab_viable')
 
 # correlation for swab total
-calculate_correlation_tbcl <- function(factor_level, fresh_frozen_tbcl_total) {
-  subset_data_tbcl <- subset(fresh_frozen_tbcl_total, Species == factor_level)
-  correlation_test_tbcl <- cor.test(subset_data_tbcl$Froz_fluor, subset_data_tbcl$Fresh_fluor, method='spearman')
+calculate_correlation_tbcl_total <- function(factor_level, fresh_frozen_tbcl_total) {
+  subset_data_tbcl_total <- subset(fresh_frozen_tbcl_total, Species == factor_level)
+  correlation_test_tbcl_total <- cor.test(subset_data_tbcl_total$Froz_fluor, subset_data_tbcl_total$Fresh_fluor, method='spearman')
  
    result <- list(
     Species = factor_level,
-    Correlation_Test = correlation_test_tbcl
+    Correlation_Test = correlation_test_tbcl_total
   )
   
   return(result)
 }
 
 factor_levels <- unique(fresh_frozen_tbcl_total$Species)
-correlation_results_tbcl <- lapply(factor_levels, function(level) {
-  calculate_correlation_tbcl(level, fresh_frozen_tbcl_total)
+correlation_results_tbcl_total <- lapply(factor_levels, function(level) {
+  calculate_correlation_tbcl_total(level, fresh_frozen_tbcl_total)
+})
+correlation_results_tbcl
+
+# Correlation for swab viable
+calculate_correlation_tbcl_viable <- function(factor_level, fresh_frozen_tbcl_viable) {
+  subset_data_tbcl_viable <- subset(fresh_frozen_tbcl_viable, Species == factor_level)
+  correlation_test_tbcl_viable <- cor.test(subset_data_tbcl_viable$Froz_fluor, subset_data_tbcl_viable$Fresh_fluor, method='spearman')
+  
+  result <- list(
+    Species = factor_level,
+    Correlation_Test = correlation_test_tbcl_viable
+  )
+  
+  return(result)
+}
+
+factor_levels <- unique(fresh_frozen_tbcl_viable$Species)
+correlation_results_tbcl_viable <- lapply(factor_levels, function(level) {
+  calculate_correlation_tbcl_viable(level, fresh_frozen_tbcl_viable)
 })
 correlation_results_tbcl
 
 
+#### Cell Stain Data ####
+
+fresh_frozen_cell_stain <- read_excel("lab_animal_data/data/fresh_frozen_cell_stain.xlsx")
+fresh_frozen_cell_stain <- fresh_frozen_cell_stain |>
+  rename(Total_bacteria_blue_fresh = `Total bacteria_blue_fresh`,
+         Total_bacteria_blue_frozen = `Total bacteria_blue_frozen`)
+
+# correlation for bacteria stained with DAPI
+calculate_correlation_stain_dapi <- function(factor_level, fresh_frozen_cell_stain) {
+  subset_data_stain_dapi <- subset(fresh_frozen_cell_stain, Species == factor_level)
+  correlation_test_stain_dapi <- cor.test(subset_data_stain_dapi$Total_bacteria_blue_fresh, 
+                                          subset_data_stain_dapi$Total_bacteria_blue_frozen, method='spearman')
+  
+  result <- list(
+    Species = factor_level,
+    Correlation_Test = correlation_test_stain_dapi
+  )
+  
+  return(result)
+}
+
+factor_levels <- unique(fresh_frozen_cell_stain$Species)
+correlation_results_stain_dapi <- lapply(factor_levels, function(level) {
+  calculate_correlation_stain_dapi(level, fresh_frozen_cell_stain)
+})
+
+correlation_results_stain_dapi
+
+# correlation for cell stained with CTC 
+calculate_correlation_stain_ctc <- function(factor_level, fresh_frozen_cell_stain) {
+  subset_data_stain_ctc <- subset(fresh_frozen_cell_stain, Species == factor_level)
+  correlation_test_stain_ctc <- cor.test(subset_data_stain_ctc$Total_bacteria_red_fresh, 
+                                          subset_data_stain_ctc$Total_bacteria_red_frozen, method='spearman')
+  
+  result <- list(
+    Species = factor_level,
+    Correlation_Test = correlation_test_stain_ctc
+  )
+  
+  return(result)
+}
+
+factor_levels <- unique(fresh_frozen_cell_stain$Species)
+correlation_results_stain_ctc <- lapply(factor_levels, function(level) {
+  calculate_correlation_stain_ctc(level, fresh_frozen_cell_stain)
+})
+
+correlation_results_stain_ctc
 
