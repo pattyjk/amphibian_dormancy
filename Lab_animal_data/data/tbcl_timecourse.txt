@@ -1,0 +1,91 @@
+4hr	16hr	24hr	Sample_ID	Species	Common_name
+22294	24771	25019	1	Salamandra salamandra	Fire salamander
+21456	23840	24079	2	Salamandra salamandra	Fire salamander
+22634	25148	25400	3	Salamandra salamandra	Fire salamander
+20882	23201.85	23434	4	Salamandra salamandra	Fire salamander
+19770	21966	22186	5	Salamandra salamandra	Fire salamander
+19262	21402.15	21617	1	Salamandra salamandra	Fire salamander
+20922	23245.95	23479	2	Salamandra salamandra	Fire salamander
+20149	22387.05	22611	3	Salamandra salamandra	Fire salamander
+21621	24022.35	24263	4	Salamandra salamandra	Fire salamander
+20392	22656.9	22884	5	Salamandra salamandra	Fire salamander
+19485	21648.9	21866	1	Salamandra salamandra	Fire salamander
+20623	22913.75	23143	2	Salamandra salamandra	Fire salamander
+20599	22886.85	23116	3	Salamandra salamandra	Fire salamander
+20000	22222.2	22445	4	Salamandra salamandra	Fire salamander
+19057	21174.3	21387	5	Salamandra salamandra	Fire salamander
+20880	23199.75	23432	6	Ambystoma maculatum	Spotted salamander
+19330	21476.7	21692	7	Ambystoma maculatum	Spotted salamander
+20885	23204.7	23437	8	Ambystoma maculatum	Spotted salamander
+20981	23312.1	23546	9	Ambystoma maculatum	Spotted salamander
+21054	23393.3	23628	10	Ambystoma maculatum	Spotted salamander
+19549	21720.3	21938	6	Ambystoma maculatum	Spotted salamander
+21966	24406.2	24651	7	Ambystoma maculatum	Spotted salamander
+21276	23639.7	23877	8	Ambystoma maculatum	Spotted salamander
+22936	25484	25739	9	Ambystoma maculatum	Spotted salamander
+20900	23222	23455	10	Ambystoma maculatum	Spotted salamander
+21054	23393	23627	6	Ambystoma maculatum	Spotted salamander
+21124	23471	23706	7	Ambystoma maculatum	Spotted salamander
+19534	21703.5	21921	8	Ambystoma maculatum	Spotted salamander
+19500	21665.7	21883	9	Ambystoma maculatum	Spotted salamander
+21814	24237.4	24480	10	Ambystoma maculatum	Spotted salamander
+19279	21421.05	21636	11	Bombina orientalis	Fire bellied toad
+19038	21152.25	21364	12	Bombina orientalis	Fire bellied toad
+21384	23759	23997	13	Bombina orientalis	Fire bellied toad
+19329	21475.65	21691	14	Bombina orientalis	Fire bellied toad
+19072	21191.1	21404	15	Bombina orientalis	Fire bellied toad
+20169	22409.1	22634	11	Bombina orientalis	Fire bellied toad
+18711	20788.95	20997	12	Bombina orientalis	Fire bellied toad
+18950	21054.6	21266	13	Bombina orientalis	Fire bellied toad
+19623	21803.25	22022	14	Bombina orientalis	Fire bellied toad
+19317	21463.05	21678	15	Bombina orientalis	Fire bellied toad
+19692	21879.9	22099	11	Bombina orientalis	Fire bellied toad
+19225	21360.15	21574	12	Bombina orientalis	Fire bellied toad
+19514	21681.45	21899	13	Bombina orientalis	Fire bellied toad
+19180	21310.8	21524	14	Bombina orientalis	Fire bellied toad
+21489	23876.3	24116	15	Bombina orientalis	Fire bellied toad
+20834	23148.3	23380	16	Notophthalmus viridescens	Eastern newt
+20513	22791.3	23020	17	Notophthalmus viridescens	Eastern newt
+22085	24538.7	24785	18	Notophthalmus viridescens	Eastern newt
+22764	25293	25546	19	Notophthalmus viridescens	Eastern newt
+22159	24621	24868	20	Notophthalmus viridescens	Eastern newt
+21747	24163	24405	16	Notophthalmus viridescens	Eastern newt
+21412	23790.05	24028	17	Notophthalmus viridescens	Eastern newt
+21029	23364.55	23599	18	Notophthalmus viridescens	Eastern newt
+19608	21786.45	22005	19	Notophthalmus viridescens	Eastern newt
+20942	23267.95	23501	20	Notophthalmus viridescens	Eastern newt
+19439	21598.5	21815	16	Notophthalmus viridescens	Eastern newt
+19199	21331.8	21546	17	Notophthalmus viridescens	Eastern newt
+18936	21039.9	21251	18	Notophthalmus viridescens	Eastern newt
+18533	20591.55	20798	19	Notophthalmus viridescens	Eastern newt
+19715	21905.1	22125	20	Notophthalmus viridescens	Eastern newt
+18843	20935.95	21146	21	Litoria caerulea	Aus. Green tree frog
+19150	21277.2	21490	22	Litoria caerulea	Aus. Green tree frog
+19232	21368.55	21583	23	Litoria caerulea	Aus. Green tree frog
+18809	20898.15	21108	24	Litoria caerulea	Aus. Green tree frog
+18835	20927.55	21137	25	Litoria caerulea	Aus. Green tree frog
+19121	21244.65	21458	21	Litoria caerulea	Aus. Green tree frog
+19478	21641.55	21858	22	Litoria caerulea	Aus. Green tree frog
+19384	21537.6	21753	23	Litoria caerulea	Aus. Green tree frog
+19927	22140.3	22362	24	Litoria caerulea	Aus. Green tree frog
+22815	25349.45	25603	25	Litoria caerulea	Aus. Green tree frog
+20466	22739.85	22968	21	Litoria caerulea	Aus. Green tree frog
+22149	24609.9	24856	22	Litoria caerulea	Aus. Green tree frog
+21444	23826.6	24065	23	Litoria caerulea	Aus. Green tree frog
+21295	23660.7	23898	24	Litoria caerulea	Aus. Green tree frog
+24264	26959.45	27230	25	Litoria caerulea	Aus. Green tree frog
+21164	23515.2	23751	26	Eurycea wilderae	Blue ridge two lined salamander
+19947	22162.35	22384	27	Eurycea wilderae	Blue ridge two lined salamander
+23051	25611.65	25868	28	Eurycea wilderae	Blue ridge two lined salamander
+19111	21234.15	21447	29	Eurycea wilderae	Blue ridge two lined salamander
+19395	21549.15	21765	30	Eurycea wilderae	Blue ridge two lined salamander
+20395	22661.1	22888	26	Eurycea wilderae	Blue ridge two lined salamander
+20646	22939.05	23169	27	Eurycea wilderae	Blue ridge two lined salamander
+19159	21287.7	21501	28	Eurycea wilderae	Blue ridge two lined salamander
+22563	25070	25321	29	Eurycea wilderae	Blue ridge two lined salamander
+20835	23149.5	23381	30	Eurycea wilderae	Blue ridge two lined salamander
+19886	22094.95	22316	26	Eurycea wilderae	Blue ridge two lined salamander
+22461	24956.15	25206	27	Eurycea wilderae	Blue ridge two lined salamander
+18868	20964.3	21174	28	Eurycea wilderae	Blue ridge two lined salamander
+18915	21015.75	21226	29	Eurycea wilderae	Blue ridge two lined salamander
+20836	23150.4	23382	30	Eurycea wilderae	Blue ridge two lined salamander
