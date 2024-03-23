@@ -128,7 +128,7 @@ factor_levels <- unique(fresh_frozen_tbcl_total$Species)
 correlation_results_tbcl_total <- lapply(factor_levels, function(level) {
   calculate_correlation_tbcl_total(level, fresh_frozen_tbcl_total)
 })
-correlation_results_tbcl
+correlation_results_tbcl_total
 
 # Correlation for swab viable
 calculate_correlation_tbcl_viable <- function(factor_level, fresh_frozen_tbcl_viable) {
