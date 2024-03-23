@@ -66,7 +66,7 @@ ko.coords<-merge(ko.coords, meta, by.x='SampleID', by.y='SampleID')
 
 #plot PCoA
 ggplot(ko.coords, aes(MDS1, MDS2, color=Species))+
-  geom_point(aes(size=2))+
+  geom_point(aes(size=2, shape = Nuc_type))+
   #geom_text()+
   theme_bw()+
   guides(alpha = "none")+

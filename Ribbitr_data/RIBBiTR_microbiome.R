@@ -69,7 +69,7 @@ ko.coords_loc <- ko.coords |>
 
 #plot PCoA by location 
 ggplot(ko.coords_loc, aes(MDS1, MDS2, color=Location, shape=Type))+
-  geom_point(aes(size=2))+
+  geom_point(aes(size=2, shape = Type))+
   #geom_text()+
   theme_bw()+
   guides(alpha = "none")+
@@ -85,7 +85,7 @@ ko.coords_species <- ko.coords |>
 
 #plot PCoA by species
 ggplot(ko.coords_species, aes(MDS1, MDS2, color=Species, shape=Type))+
-  geom_point(aes(size=2))+
+  geom_point(aes(size=2, shape = N))+
   #geom_text()+
   theme_bw()+
   guides(alpha = "none")+
