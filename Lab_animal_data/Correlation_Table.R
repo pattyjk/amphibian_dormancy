@@ -66,7 +66,7 @@ Cell_culture_combined <-
 
 #calculate correlations
 
-##write a function to do the calculation (SPearman correlation)
+##write a function to do the calculation (Spearman correlation)
 #parts to change: 
 #data- whatever your data frame is named, 
 #the 'fresh_CFU' and 'Frozen_counts' to whatever column you're naming
@@ -98,8 +98,7 @@ correlation_results
 #### TBCL ASSAY DATA ####
 #Calculate correlation with p-value for each level of the factor
 
-fresh_frozen_tbcl <- read.delim("~/Mircobiome Lab/Microbiome Lab Data Analysis/amphibian_dormancy/Lab_animal_data/data/fresh_frozen_TbCl.txt",
-                                sep = "\t", header = T)
+fresh_frozen_tbcl <- read.delim("Lab_animal_data/data/fresh_frozen_TbCl.txt", sep = "\t", header = T)
                                 
 # remove mucosome data 
 fresh_frozen_tbcl <- fresh_frozen_tbcl |>
