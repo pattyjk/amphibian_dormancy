@@ -1,0 +1,4 @@
+Feature ID	Taxon	Confidence
+053480b13b8379901eb13a509889164a	d__Bacteria; p__Firmicutes; c__Bacilli; o__Bacillales; f__Bacillaceae; g__Bacillus	0.923204914789146
+14d168c89e381de6fc3091837a557e48	d__Bacteria; p__Firmicutes; c__Bacilli; o__Bacillales; f__Bacillaceae; g__Bacillus	0.934674417941199
+d0958c80b3756a5cf6cf4e71c5693e64	d__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium_sensu_stricto_1	0.960011105000861

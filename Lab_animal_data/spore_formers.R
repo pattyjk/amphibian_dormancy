@@ -25,8 +25,8 @@ asv_spore <- rownames_to_column(asv_table, var = "Feature ID")
 taxon <- merge(asv_spore, taxonomy, by = "Feature ID")
 
 # filters for spore forming genera based on whats listed in the textfile
-spore_formers <- taxon[grep(paste(spore_forming_genera, collapse="|"), taxon$Taxon), ]
-spore_formers <- select(spore_formers, -c(Taxon, Confidence))
+spore_formers1 <- taxon[grep(paste(spore_forming_genera, collapse="|"), taxon$Taxon), ]
+spore_formers <- select(spore_formers1, -c(Taxon, Confidence))
 rownames(spore_formers) <- c("053480b13b8379901eb13a509889164a", "14d168c89e381de6fc3091837a557e48", "d0958c80b3756a5cf6cf4e71c5693e64")
 #remove feature ID column for combining with total data 
 spore_formers_fixed <- select(spore_formers, -c(`Feature ID`))
@@ -80,9 +80,12 @@ numeric_per_spore <- mutate_at(per_spore_filter, .vars= c("053480b13b8379901eb13
                                                          "Percent Spore Forming Bacteria", "Total Bacteria Count"),
                                as.numeric)
 
-# plot the percentage of spore forming bacteria 
+# plot the percentage of spore forming bacteria per species
 numeric_per_spore |>
 ggplot(aes(x = Species, y = `Percent Spore Forming Bacteria`, fill = Species)) +
   geom_boxplot()
 
+# output a table of spore forming bacteria that are present in the species
+spore_forming_bacteria <- select(spore_formers1, c("Feature ID", "Taxon", "Confidence"))
+write.table(spore_forming_bacteria, "Lab_animal_data/data/Lab_animal_16s_spore_formers.txt", sep='\t', quote=F, row.names=F)
 
