@@ -79,11 +79,19 @@ per_spore_transpose <- rownames_to_column(per_spore_transpose, var = "SampleID")
 # remove NA values
 per_spore_filter <- na.omit(per_spore_transpose)
 
+# change all numbers to a numeric case and remove all empty values
 numeric_per_spore <- mutate_if(per_spore_filter, ~all(grepl("^\\d+\\.?\\d*$", .)), as.numeric)
+numeric_per_spore_clean <- numeric_per_spore[!(numeric_per_spore$Location == "" |numeric_per_spore$Species == "" | 
+                                                 numeric_per_spore$Species == "N/A" | numeric_per_spore$Species =="Negative Control" |
+                                                 numeric_per_spore$Species =="Negative control"), ]
 
 # plot the percentage of spore forming bacteria per species
-numeric_per_spore |>
+numeric_per_spore_clean |>
   ggplot(aes(x = Species, y = `Percent Spore Forming Bacteria`, fill = Species)) +
+  geom_boxplot()
+
+numeric_per_spore_clean |>
+  ggplot(aes(x = Location, y = `Percent Spore Forming Bacteria`, fill = Species)) +
   geom_boxplot()
 
 # merge the tacon data back with the percent spore formers
@@ -91,31 +99,3 @@ numeric_per_spore |>
 final_metadata <- rownames_to_column(per_spore_filter, var = "Feature ID")
 RIBBiTR_Microbiome <- left_join(final_metadata, merged_taxonomy, by = "Feature ID")
 
-
-#### TEST ####
-test_df <- t(spore_formers1)
-test_df <- as.data.frame((test_df))
-test_df <- rownames_to_column(test_df, var = "Sample ID")
-colnames(test_df) <- test_df[1, ]
-
-# Remove the first row
-test_df <- test_df[-1, ]
-
-
-rows_to_transpose <- 464:465  # Example: transposing the first two rows
-
-# Transpose selected rows
-transposed_rows <- t(test_df[rows_to_transpose, ])
-
-# Convert transposed rows to dataframe
-transposed_test_df <- as.data.frame(transposed_rows)
-transposed_Test_df <- rownames_to_column(transposed_test_df, var = )
-
-# Remove transposed rows from original dataframe
-test_df <- test_df[-rows_to_transpose, ]
-
-# Combine transposed dataframe with original dataframe
-result_df <- rbind(test_df, transposed_test_df)
-
-# Print the result
-print(result_df)
