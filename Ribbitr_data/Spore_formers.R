@@ -96,5 +96,4 @@ numeric_per_spore_clean |>
 
 # merge the tacon data back with the percent spore formers
 final_metadata <- rownames_to_column(per_spore_filter, var = "Feature ID")
-final_metadata <- select(final_metadata, -c("Feature ID"))
 

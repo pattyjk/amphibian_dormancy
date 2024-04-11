@@ -13,6 +13,8 @@ library(tidyr)
 library(data.table)
 library(dplyr)
 library(agricolae)
+library(purrr)
+library(Hmisc)
 
 # Load in the needed data
 #TbCl Data 
@@ -104,6 +106,19 @@ total_vs_viable_clean |>
   geom_boxplot() + 
   scale_fill_manual(values =c("Total_fluor" = "#FF9999", "Viable_fluor" =  "#56B4E9" ),
                     labels = c("Viable Spore Count", "Total Spore Count"))
+
+# plot as a percentage of viable/total
+total_vs_viable |>
+  ggplot(aes(x = Species, y = Per_viable, fill = Species)) +
+  stat_summary(fun.data=mean_sdl, geom="bar") +
+  theme_bw() +
+  scale_y_continuous(labels= scales::label_percent(scale = 1, accuracy =1)) +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+  
+  
+
 
 # combine fresh versus frozen data for both total and viable spores
 frozen_spore_total <- frozen_spore_total[-1, ]
