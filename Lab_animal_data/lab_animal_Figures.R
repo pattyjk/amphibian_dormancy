@@ -118,8 +118,6 @@ total_vs_viable |>
         axis.ticks.x=element_blank())
   
   
-
-
 # combine fresh versus frozen data for both total and viable spores
 frozen_spore_total <- frozen_spore_total[-1, ]
 frozen_spore_total$SampleID <- as.numeric(frozen_spore_total$SampleID)

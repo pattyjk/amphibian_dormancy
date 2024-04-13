@@ -44,8 +44,8 @@ cell_counts_total |>
 
 
 # Boxplot of %spore forming bacteria 
-cell_counts_total |>
-  ggplot(aes(Species, (100*(CFU_past/CFU_ml)), fill = Location)) +
+per_dormant_culture <- cell_counts_total |>
+  ggplot(aes(Species, (100*(CFU_past/CFU_ml)), fill = Species)) +
   geom_boxplot(outlier.shape = NA, outlier.colour = NA) +
   scale_y_continuous(limits = c(0,10)) +
   ylab("% Culutrable Spore Forming Bacteria")
@@ -113,6 +113,7 @@ cell_stain_count_total_long <-
                     labels = c("Stained with DAPI", "Stained with CTC"))
  
  # percent dormancy 
- cell_stain_count_total_long |>
-   ggplot(aes(Per_dormant, Species, fill = Location)) +
+ per_dormant_cell_stain <- cell_stain_count_total_long |>
+   ggplot(aes(y = Per_dormant,  x= Species, fill = Species)) +
    geom_boxplot()
+ 

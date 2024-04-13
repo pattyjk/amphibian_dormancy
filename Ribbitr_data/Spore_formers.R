@@ -86,7 +86,7 @@ numeric_per_spore_clean <- numeric_per_spore[!(numeric_per_spore$Location == "" 
                                                  numeric_per_spore$Species =="Negative control"), ]
 
 # plot the percentage of spore forming bacteria per species
-numeric_per_spore_clean |>
+per_dormant_16s <- numeric_per_spore_clean |>
   ggplot(aes(x = Species, y = `Percent Spore Forming Bacteria`, fill = Species)) +
   geom_boxplot()
 
