@@ -97,3 +97,76 @@ numeric_per_spore_clean |>
 # merge the tacon data back with the percent spore formers
 final_metadata <- rownames_to_column(per_spore_filter, var = "Feature ID")
 
+write.table(numeric_per_spore_clean, "Ribbitr_data/data/RIBBiTR_16s_spore_formers.csv", sep=',', quote=F, row.names=F)
+
+# relative abundance of spore forming bacteria per species 
+dat <- asv_spore |>
+  pivot_longer(-`Feature ID`, names_to = "SampleID", values_to = "count")
+
+# merge taxonomy
+dat <- dat |> 
+left_join(merged_taxonomy, by = "Feature ID")
+
+sample_meta <- read_csv("Ribbitr_data/data/sample_meta_data.csv")
+meta_dat <- dat |>
+  left_join(sample_meta, by = "SampleID")
+
+# remove all NA values 
+meta_dat <- meta_dat[!(meta_dat$Location == "" |meta_dat$Species == "" | 
+                         meta_dat$Species == "N/A" | meta_dat$Species =="Negative Control" |
+                         meta_dat$Species =="Negative control" | is.na(meta_dat$Species)), ]
+
+sample_meta_clean <- subset(meta_dat, grepl(paste(spore_forming_genera, collapse="|"), meta_dat$Taxon))
+
+# Function to extract family name
+extract_family <- function(taxonomy_chain) {
+  # Split the taxonomy chain into components
+  components <- strsplit(taxonomy_chain, "; ")[[1]]
+  # Find the component containing the family name
+  family_component <- grep("^f__", components)
+  # Extract the family name
+  if (length(family_component) > 0) {
+    family <- gsub("^f__", "", components[family_component])
+    family <- gsub("_.*", "", family)
+    return(family)
+  } else {
+    return(NA)  # If family name is not found, return NA
+  }
+}
+
+# Apply the function to each row in the dataframe
+sample_meta_clean$genus <- sapply(sample_meta_clean$Taxon, extract_family)
+
+# add scientific name for plotting ease
+sample_meta_clean <- sample_meta_clean |>
+  mutate(`Species Name` = case_when(
+    Species == "Rana pipiens" ~ "R. pipiens",
+    Species == "Rana catesbeiana" ~ "R. catesneiana",
+    Species == "Hylodes_phyllodes" ~ "H. phyllodes",
+    Species == "Ischnocnema_henselii" ~ "I. Henselii",
+    Species == "Colostethus panamansis" ~ "C. panamansis",
+    Species == "Lithobates warzsewitschii" ~ "L. warszewitschii",
+    TRUE ~ NA_character_  # Handle other cases if needed
+  ))
+
+
+label1 <- c("H. phyllodes", "I. Henselii")
+label2 <- c("C. panamansis", "L. warszewitschii")
+label3 <- c("R. catesbeiana", "R. pipiens")
+
+
+# plotting the relative abundance of each spore forming bacteria 
+sample_meta_clean |>
+  ggplot(aes(x = `Species Name`, y = count)) +
+  geom_bar(aes(fill = genus), stat = "identity", position = "fill") +
+  facet_grid(~ Location, scales = "free_x", space = "free_x") +
+  scale_y_continuous(name = "Relative Abundance") +
+  labs(fill = "Bacteria Family") +
+  theme(text = element_text(size = 14, family = "Arial", face = "Bold")) +
+  theme_minimal() +
+  theme(strip.background = element_blank(),
+        axis.text.x = element_text(face = "italic"))
+  
+
+
+

@@ -88,4 +88,64 @@ ggplot(aes(x = Species, y = `Percent Spore Forming Bacteria`, fill = Species)) +
 # output a table of spore forming bacteria that are present in the species
 spore_forming_bacteria <- select(spore_formers1, c("Feature ID", "Taxon", "Confidence"))
 write.table(spore_forming_bacteria, "Lab_animal_data/data/Lab_animal_16s_spore_formers.txt", sep='\t', quote=F, row.names=F)
+write.table(numeric_per_spore, "Lab_animal_data/data/sample_data_meta.csv", sep = ",", quote=F, row.names=F)
+
+dat <- asv_spore |>
+  pivot_longer(-`Feature ID`, names_to = "SampleID", values_to = "count")
+
+# merge taxonomy
+dat <- dat |> 
+  left_join(merged_taxonomy, by = "Feature ID")
+
+sample_meta <- read_csv("Lab_animal_data/data/sample_data_meta.csv")
+meta_dat <- dat |>
+  left_join(sample_meta, by = "SampleID")
+
+meta_dat <- meta_dat[!(meta_dat$Species == "" | 
+                         meta_dat$Species == "N/A" | meta_dat$Species =="Negative Control" |
+                         meta_dat$Species =="Negative control" | is.na(meta_dat$Species)), ]
+
+sample_meta_clean <- subset(meta_dat, grepl(paste(spore_forming_genera, collapse="|"), meta_dat$Taxon))
+
+# Function to extract family name
+extract_family <- function(taxonomy_chain) {
+  # Split the taxonomy chain into components
+  components <- strsplit(taxonomy_chain, "; ")[[1]]
+  # Find the component containing the family name
+  family_component <- grep("^f__", components)
+  # Extract the family name
+  if (length(family_component) > 0) {
+    family <- gsub("^f__", "", components[family_component])
+    family <- gsub("_.*", "", family)
+    return(family)
+  } else {
+    return(NA)  # If family name is not found, return NA
+  }
+}
+
+# Apply the function to each row in the dataframe
+sample_meta_clean$genus <- sapply(sample_meta_clean$Taxon, extract_family)
+
+# add scientific name for plotting ease
+sample_meta_clean <- sample_meta_clean |>
+  mutate(`Species Name` = case_when(
+    Species == "Bombina orientalis" ~ "B. orientalis",
+    Species == "Notophthalmus viridescens" ~ "N. viridescens",
+    Species == "Salamandra salamandra" ~ "S. salamandra",
+    Species == "Ambystoma maculatum" ~ "A. maculatum",
+    Species == "Eurycea wilderae" ~ "E. wilderae",
+    TRUE ~ NA_character_  # Handle other cases if needed
+  ))
+
+
+ sample_meta_clean |>
+  ggplot(aes(x = `Species Name`, y = count)) +
+  geom_bar(aes(fill = genus), stat = "identity", position = "fill") +
+  scale_y_continuous(name = "Relative Abundance") +
+  labs(fill = "Bacteria Family") +
+   theme_minimal() +
+  theme(text = element_text(size = 32, family = "Arial")) +
+  theme(strip.background = element_blank(),
+        axis.text.x = element_text(face = "italic")) +
+   scale_fill_manual(values = c("#B79F00", "#00BA38", "#619CFF"))
 
