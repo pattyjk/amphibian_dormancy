@@ -168,5 +168,40 @@ sample_meta_clean |>
         axis.text.x = element_text(face = "italic"))
   
 
+ meta_dat$genus <- sapply(meta_dat$Taxon, extract_order)
+ 
+ meta_dat_1 <- meta_dat |>
+   mutate(`spore_form` = case_when(
+     str_detect(Taxon, "Actinmycetaceae") ~ "Spore Former",
+     str_detect(Taxon, "Bacillaceae") ~ "Spore Former",
+     str_detect(Taxon, "Clostridiacease") ~ "Spore Former",
+     str_detect(Taxon, "Desulfitobacteriaceae") ~ "Spore Former",
+     str_detect(Taxon, "Paenibacillaceae") ~ "Spore Former",
+     str_detect(Taxon, "Syntrophomonadaceae") ~ "Spore Former",
+     TRUE ~ "Not Spore Former"  # Handle other cases if needed
+   )
+   )
+ 
+ # add scientific name for plotting ease
+ meta_dat_1 <- meta_dat_1 |>
+   mutate(`Species Name` = case_when(
+     Species == "Rana pipiens" ~ "R. pipiens",
+    Species == "Rana catesbeiana" ~ "R. catesneiana",
+    Species == "Hylodes_phyllodes" ~ "H. phyllodes",
+    Species == "Ischnocnema_henselii" ~ "I. Henselii",
+    Species == "Colostethus panamansis" ~ "C. panamansis",
+    Species == "Lithobates warzsewitschii" ~ "L. warszewitschii",
+     TRUE ~ NA_character_  # Handle other cases if needed
+   ))
+ 
+ meta_dat_1 |>
+   ggplot(aes(x = `Species Name`, y = count)) +
+   geom_bar(aes(fill = `spore_form`), stat = "identity", position = "fill") +
+   scale_y_continuous(name = "Relative Abundance") +
+   labs(fill = "Bacteria Family") +
+   theme_minimal() +
+   theme(text = element_text(size = 32, family = "Arial")) +
+   theme(strip.background = element_blank(),
+         axis.text.x = element_text(face = "italic"))
 
 
