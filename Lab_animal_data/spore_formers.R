@@ -148,4 +148,56 @@ sample_meta_clean <- sample_meta_clean |>
   theme(strip.background = element_blank(),
         axis.text.x = element_text(face = "italic")) +
    scale_fill_manual(values = c("#B79F00", "#00BA38", "#619CFF"))
-
+ 
+ # plot entire bacterial composition 
+ 
+ # Function to extract family name
+ extract_order <- function(taxonomy_chain) {
+   # Split the taxonomy chain into components
+   components <- strsplit(taxonomy_chain, "; ")[[1]]
+   # Find the component containing the family name
+   family_component <- grep("^o__", components)
+   # Extract the family name
+   if (length(family_component) > 0) {
+     family <- gsub("^o__", "", components[family_component])
+     family <- gsub("_.*", "", family)
+     return(family)
+   } else {
+     return(NA)  # If family name is not found, return NA
+   }
+ }
+ 
+ meta_dat$genus <- sapply(meta_dat$Taxon, extract_order)
+ 
+ meta_dat_1 <- meta_dat |>
+   mutate(`spore_form` = case_when(
+     str_detect(Taxon, "Actinmycetaceae") ~ "Spore Former",
+     str_detect(Taxon, "Bacillaceae") ~ "Spore Former",
+     str_detect(Taxon, "Clostridiacease") ~ "Spore Former",
+     str_detect(Taxon, "Desulfitobacteriaceae") ~ "Spore Former",
+     str_detect(Taxon, "Paenibacillaceae") ~ "Spore Former",
+     str_detect(Taxon, "Syntrophomonadaceae") ~ "Spore Former",
+     TRUE ~ "Not Spore Former"  # Handle other cases if needed
+   )
+   )
+ 
+ # add scientific name for plotting ease
+ meta_dat_1 <- meta_dat_1 |>
+   mutate(`Species Name` = case_when(
+     Species == "Bombina orientalis" ~ "B. orientalis",
+     Species == "Notophthalmus viridescens" ~ "N. viridescens",
+     Species == "Salamandra salamandra" ~ "S. salamandra",
+     Species == "Ambystoma maculatum" ~ "A. maculatum",
+     Species == "Eurycea wilderae" ~ "E. wilderae",
+     TRUE ~ NA_character_  # Handle other cases if needed
+   ))
+ 
+ meta_dat_1 |>
+   ggplot(aes(x = `Species Name`, y = count)) +
+   geom_bar(aes(fill = `spore_form`), stat = "identity", position = "fill") +
+   scale_y_continuous(name = "Relative Abundance") +
+   labs(fill = "Bacteria Family") +
+   theme_minimal() +
+   theme(text = element_text(size = 32, family = "Arial")) +
+   theme(strip.background = element_blank(),
+         axis.text.x = element_text(face = "italic"))
