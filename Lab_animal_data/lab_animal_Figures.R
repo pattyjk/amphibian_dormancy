@@ -64,6 +64,10 @@ ctc_dapi <-
   scale_fill_manual(values =c("Total_bacteria_red" = "#FF9999", "Total bacteria_blue" =  "#56B4E9" ),
                     labels = c("Stained with DAPI", "Stained with CTC"))
 
+# plot percent dormancy
+ctc_dormant <- ggplot(cell_stain_long, aes(x = Species, y = Per_dormant, fill = Species)) +
+  geom_boxplot()
+
 # Stats 
 set.seed(12345)
 # run anova to compare effects of stain type and species 
@@ -227,6 +231,10 @@ cell_count_past_per |>
   ggplot(aes(x = Species, y = (100*(CFU_ml/`CFU/ml_2/22`)), fill = SampleType)) +
   geom_boxplot() +
   ylab("% Culturable Spore Forming Bacteria")
+
+culture_dormant <- 
+  ggplot(cell_count_past_per, aes(x = Species, y = (100*(CFU_ml/`CFU/ml_2/22`)), fill = Species )) +
+  geom_boxplot()
   
 
 

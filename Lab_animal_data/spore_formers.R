@@ -81,7 +81,7 @@ numeric_per_spore <- mutate_at(per_spore_filter, .vars= c("053480b13b8379901eb13
                                as.numeric)
 
 # plot the percentage of spore forming bacteria per species
-numeric_per_spore |>
+dormant_16s <- numeric_per_spore |>
 ggplot(aes(x = Species, y = `Percent Spore Forming Bacteria`, fill = Species)) +
   geom_boxplot()
 
@@ -152,14 +152,14 @@ sample_meta_clean <- sample_meta_clean |>
  # plot entire bacterial composition 
  
  # Function to extract family name
- extract_order <- function(taxonomy_chain) {
+ extract_phylum <- function(taxonomy_chain) {
    # Split the taxonomy chain into components
    components <- strsplit(taxonomy_chain, "; ")[[1]]
    # Find the component containing the family name
-   family_component <- grep("^o__", components)
+   family_component <- grep("^p__", components)
    # Extract the family name
    if (length(family_component) > 0) {
-     family <- gsub("^o__", "", components[family_component])
+     family <- gsub("^p__", "", components[family_component])
      family <- gsub("_.*", "", family)
      return(family)
    } else {
@@ -167,7 +167,7 @@ sample_meta_clean <- sample_meta_clean |>
    }
  }
  
- meta_dat$genus <- sapply(meta_dat$Taxon, extract_order)
+ meta_dat$genus <- sapply(meta_dat$Taxon, extract_phylum)
  
  meta_dat_1 <- meta_dat |>
    mutate(`spore_form` = case_when(
@@ -194,10 +194,10 @@ sample_meta_clean <- sample_meta_clean |>
  
  meta_dat_1 |>
    ggplot(aes(x = `Species Name`, y = count)) +
-   geom_bar(aes(fill = `spore_form`), stat = "identity", position = "fill") +
+   geom_bar(aes(fill = `genus`), stat = "identity", position = "fill") +
    scale_y_continuous(name = "Relative Abundance") +
    labs(fill = "Bacteria Family") +
    theme_minimal() +
-   theme(text = element_text(size = 32, family = "Arial")) +
+   theme(text = element_text(size = 32, family = "serif")) +
    theme(strip.background = element_blank(),
          axis.text.x = element_text(face = "italic"))

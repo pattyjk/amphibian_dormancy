@@ -98,6 +98,8 @@ numeric_per_spore_clean |>
 final_metadata <- rownames_to_column(per_spore_filter, var = "Feature ID")
 
 write.table(numeric_per_spore_clean, "Ribbitr_data/data/RIBBiTR_16s_spore_formers.csv", sep=',', quote=F, row.names=F)
+write.table(sample_meta_clean, "Ribbitr_data/data/sample_meta_clean.csv", sep =',', quote=F, row.names=F)
+write.table(meta_dat, "Ribbitr_data/data/sample_meta.csv", sep =',', quote=F, row.names=F)
 
 # relative abundance of spore forming bacteria per species 
 dat <- asv_spore |>
@@ -150,11 +152,6 @@ sample_meta_clean <- sample_meta_clean |>
   ))
 
 
-label1 <- c("H. phyllodes", "I. Henselii")
-label2 <- c("C. panamansis", "L. warszewitschii")
-label3 <- c("R. catesbeiana", "R. pipiens")
-
-
 # plotting the relative abundance of each spore forming bacteria 
 sample_meta_clean |>
   ggplot(aes(x = `Species Name`, y = count)) +
@@ -162,11 +159,120 @@ sample_meta_clean |>
   facet_grid(~ Location, scales = "free_x", space = "free_x") +
   scale_y_continuous(name = "Relative Abundance") +
   labs(fill = "Bacteria Family") +
-  theme(text = element_text(size = 14, family = "Arial", face = "Bold")) +
+  theme(text = element_text(size = 14, family = "serif", face = "Bold")) +
   theme_minimal() +
   theme(strip.background = element_blank(),
         axis.text.x = element_text(face = "italic"))
   
 
+# Function to extract family name
+extract_order <- function(taxonomy_chain) {
+  # Split the taxonomy chain into components
+  components <- strsplit(taxonomy_chain, "; ")[[1]]
+  # Find the component containing the family name
+  family_component <- grep("^o__", components)
+  # Extract the family name
+  if (length(family_component) > 0) {
+    family <- gsub("^o__", "", components[family_component])
+    family <- gsub("_.*", "", family)
+    return(family)
+  } else {
+    return(NA)  # If family name is not found, return NA
+  }
+}
+
+meta_dat$genus <- sapply(meta_dat$Taxon, extract_order)
+
+meta_dat_1 <- meta_dat |>
+  mutate(`spore_form` = case_when(
+    str_detect(Taxon, "Actinmycetaceae") ~ "Spore Former",
+    str_detect(Taxon, "Bacillaceae") ~ "Spore Former",
+    str_detect(Taxon, "Clostridiacease") ~ "Spore Former",
+    str_detect(Taxon, "Desulfitobacteriaceae") ~ "Spore Former",
+    str_detect(Taxon, "Paenibacillaceae") ~ "Spore Former",
+    str_detect(Taxon, "Syntrophomonadaceae") ~ "Spore Former",
+    TRUE ~ "Not Spore Former"  # Handle other cases if needed
+  )
+  )
+
+ meta_dat$genus <- sapply(meta_dat$Taxon, extract_order)
+ 
+ meta_dat_1 <- meta_dat |>
+   mutate(`spore_form` = case_when(
+     str_detect(Taxon, "Actinmycetaceae") ~ "Spore Former",
+     str_detect(Taxon, "Bacillaceae") ~ "Spore Former",
+     str_detect(Taxon, "Clostridiacease") ~ "Spore Former",
+     str_detect(Taxon, "Desulfitobacteriaceae") ~ "Spore Former",
+     str_detect(Taxon, "Paenibacillaceae") ~ "Spore Former",
+     str_detect(Taxon, "Syntrophomonadaceae") ~ "Spore Former",
+     TRUE ~ "Not Spore Former"  # Handle other cases if needed
+   )
+   )
+ 
+ # add scientific name for plotting ease
+ meta_dat_1 <- meta_dat_1 |>
+   mutate(`Species Name` = case_when(
+     Species == "Rana pipiens" ~ "R. pipiens",
+    Species == "Rana catesbeiana" ~ "R. catesneiana",
+    Species == "Hylodes_phyllodes" ~ "H. phyllodes",
+    Species == "Ischnocnema_henselii" ~ "I. Henselii",
+    Species == "Colostethus panamansis" ~ "C. panamansis",
+    Species == "Lithobates warzsewitschii" ~ "L. warszewitschii",
+    TRUE ~ NA_character_  # Handle other cases if needed
+  ))
+
+ meta_dat_1 |>
+   ggplot(aes(x = `Species Name`, y = count)) +
+   geom_bar(aes(fill = `spore_form`), stat = "identity", position = "fill") +
+   scale_y_continuous(name = "Relative Abundance") +
+   labs(fill = "Bacteria Family") +
+   theme_minimal() +
+   theme(text = element_text(size = 32, family = "Arial")) +
+   theme(strip.background = element_blank(),
+         axis.text.x = element_text(face = "italic"))
+
+#### FINAL BARPLOT ####
+
+# entire bacterial community 
+final_ribbitr <- read.csv("Ribbitr_data/data/sample_meta_clean.csv")
+total_abundance <- meta_dat |>
+  mutate(total_abundance = sum(count))
+
+final_ribbitr |>
+  ggplot(aes(x = Species.Name, y = Relative.Abundance*100)) +
+  geom_bar(aes(fill = `genus`), stat = "identity", position = "fill") +
+  scale_y_continuous(name = "Relative Abundance") +
+  labs(fill = "Bacteria Family") +
+  theme_minimal() +
+  theme(text = element_text(size = 28, family = "serif")) +
+  theme(strip.background = element_blank(),
+        axis.text.x = element_text(face = "italic"))
 
 
+meta_dat_1 |>
+  ggplot(aes(x = `Species Name`, y = count)) +
+  geom_bar(aes(fill = `spore_form`), stat = "identity", position = "fill") +
+  scale_y_continuous(name = "Relative Abundance") +
+  labs(fill = "Bacteria Family") +
+  theme_minimal() +
+  theme(text = element_text(size = 32, family = "Arial")) +
+  theme(strip.background = element_blank(),
+        axis.text.x = element_text(face = "italic"))
+
+
+#### FINAL BARPLOT ####
+
+# entire bacterial community 
+final_ribbitr <- read.csv("Ribbitr_data/data/sample_meta_clean.csv")
+total_abundance <- meta_dat |>
+  mutate(total_abundance = sum(count))
+
+final_ribbitr |>
+  ggplot(aes(x = Species.Name, y = Relative.Abundance*100)) +
+  geom_bar(aes(fill = `genus`), stat = "identity", position = "fill") +
+  scale_y_continuous(name = "Relative Abundance") +
+  labs(fill = "Bacteria Family") +
+  theme_minimal() +
+  theme(text = element_text(size = 28, family = "serif")) +
+  theme(strip.background = element_blank(),
+        axis.text.x = element_text(face = "italic"))
