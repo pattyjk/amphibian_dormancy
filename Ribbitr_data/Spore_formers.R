@@ -250,13 +250,3 @@ final_ribbitr |>
         axis.text.x = element_text(face = "italic"))
 
 
-meta_dat_1 |>
-  ggplot(aes(x = `Species Name`, y = count)) +
-  geom_bar(aes(fill = `spore_form`), stat = "identity", position = "fill") +
-  scale_y_continuous(name = "Relative Abundance") +
-  labs(fill = "Bacteria Family") +
-  theme_minimal() +
-  theme(text = element_text(size = 32, family = "Arial")) +
-  theme(strip.background = element_blank(),
-        axis.text.x = element_text(face = "italic"))
-
