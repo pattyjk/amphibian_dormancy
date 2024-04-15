@@ -260,20 +260,3 @@ meta_dat_1 |>
   theme(strip.background = element_blank(),
         axis.text.x = element_text(face = "italic"))
 
-
-#### FINAL BARPLOT ####
-
-# entire bacterial community 
-final_ribbitr <- read.csv("Ribbitr_data/data/sample_meta_clean.csv")
-total_abundance <- meta_dat |>
-  mutate(total_abundance = sum(count))
-
-final_ribbitr |>
-  ggplot(aes(x = Species.Name, y = Relative.Abundance*100)) +
-  geom_bar(aes(fill = `genus`), stat = "identity", position = "fill") +
-  scale_y_continuous(name = "Relative Abundance") +
-  labs(fill = "Bacteria Family") +
-  theme_minimal() +
-  theme(text = element_text(size = 28, family = "serif")) +
-  theme(strip.background = element_blank(),
-        axis.text.x = element_text(face = "italic"))
