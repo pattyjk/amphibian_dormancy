@@ -221,6 +221,7 @@ meta_dat_1 <- meta_dat |>
     TRUE ~ NA_character_  # Handle other cases if needed
   ))
 
+
  meta_dat_1 |>
    ggplot(aes(x = `Species Name`, y = count)) +
    geom_bar(aes(fill = `spore_form`), stat = "identity", position = "fill") +
