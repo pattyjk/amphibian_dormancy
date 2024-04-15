@@ -150,11 +150,6 @@ sample_meta_clean <- sample_meta_clean |>
   ))
 
 
-label1 <- c("H. phyllodes", "I. Henselii")
-label2 <- c("C. panamansis", "L. warszewitschii")
-label3 <- c("R. catesbeiana", "R. pipiens")
-
-
 # plotting the relative abundance of each spore forming bacteria 
 sample_meta_clean |>
   ggplot(aes(x = `Species Name`, y = count)) +
