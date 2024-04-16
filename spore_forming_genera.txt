@@ -85,4 +85,3 @@ g__Thermovenabulum
 g__Tuberibacillus
 g__Virgibacillus
 g__Vulcanobacillus
-Total
