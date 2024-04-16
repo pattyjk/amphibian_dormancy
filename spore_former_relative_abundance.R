@@ -7,9 +7,10 @@ library(ggplot2)
 
 #read data
 library(readr)
-lab_taxonomy <- read.csv("amphibian_dormancy/Lab_animal_data/data/lab_animals_level7.csv", header=T, row.names = 1)
+lab_taxonomy1 <- read.csv("Lab_animal_data/data/lab_animals_level7.csv", header=T, row.names = 1)
+lab_taxonomy2 <- read.csv("Lab_animal_data/data/lab_animals_level7(2).csv", header=T, row.names = 1)
 lab_taxonomy<-t(lab_taxonomy)
-spore_genera<-read.delim("amphibian_dormancy/spore_forming_genera.txt", header=F)
+spore_genera<-read.delim("spore_forming_genera.txt", header=F)
 
 #change to relative abundance
 lab_taxonomy<-as.data.frame(sweep(lab_taxonomy, 2, colSums(lab_taxonomy), '/'))
@@ -25,7 +26,7 @@ library(reshape2)
 spore_m<-melt(spore_tax)
 
 #read in metadata
-meta<-read.csv("./amphibian_dormancy/Lab_animal_data/data/sample_data_meta.csv", header=T)
+meta<-read.csv("Lab_animal_data/data/sample_data_meta.csv", header=T)
 
 #merge metadata to spore data
 spore_m<-merge(spore_m, meta, by.x='variable', by.y='SampleID')
@@ -55,9 +56,9 @@ ggplot(spore_sum, aes(Species.y, mean, fill=Genus))+
 
 #read data
 library(readr)
-lab_taxonomy <- read.csv("amphibian_dormancy/Ribbitr_data/data/panama_level7.csv", header=T, row.names = 1)
+lab_taxonomy <- read.csv("Ribbitr_data/data/panama_level7.csv", header=T, row.names = 1)
 lab_taxonomy<-t(lab_taxonomy)
-spore_genera<-read.delim("amphibian_dormancy/spore_forming_genera.txt", header=F)
+spore_genera<-read.delim("spore_forming_genera.txt", header=F)
 
 #change to relative abundance
 lab_taxonomy<-as.data.frame(sweep(lab_taxonomy, 2, colSums(lab_taxonomy), '/'))
@@ -73,7 +74,7 @@ library(reshape2)
 spore_m<-melt(spore_tax)
 
 #read in metadata
-meta<-read.delim("./amphibian_dormancy/Ribbitr_data/data/2022_Panama_16S_map.txt", header=T)
+meta<-read.delim("Ribbitr_data/data/2022_Panama_16S_map.txt", header=T)
 
 #merge metadata to spore data
 spore_m<-merge(spore_m, meta, by.x='variable', by.y='SampleID')
