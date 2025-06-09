@@ -1,0 +1,109 @@
+No_spores	Fluorescens	Name
+2.00E+07	99461	Virdibacillus arri
+2.00E+07	99442	Virdibacillus arri
+2.00E+07	99431	Virdibacillus arri
+2.00E+05	78248	Virdibacillus arri
+2.00E+05	78960	Virdibacillus arri
+2.00E+05	77388	Virdibacillus arri
+2.00E+04	27087	Virdibacillus arri
+2.00E+04	30556	Virdibacillus arri
+2.00E+04	29250	Virdibacillus arri
+2.00E+02	23159	Virdibacillus arri
+2.00E+02	24038	Virdibacillus arri
+2.00E+02	25635	Virdibacillus arri
+1.80E+06	984502	Lysinibacillus fusiformis
+1.80E+06	981908	Lysinibacillus fusiformis
+1.80E+06	982628	Lysinibacillus fusiformis
+1.80E+05	73701	Lysinibacillus fusiformis
+1.80E+05	73144	Lysinibacillus fusiformis
+1.80E+05	73576	Lysinibacillus fusiformis
+1.80E+03	22149	Lysinibacillus fusiformis
+1.80E+03	20695	Lysinibacillus fusiformis
+1.80E+03	20341	Lysinibacillus fusiformis
+1.80E+01	21197	Lysinibacillus fusiformis
+1.80E+01	21305	Lysinibacillus fusiformis
+1.80E+01	22970	Lysinibacillus fusiformis
+2.00E+07	135934	Bacillus tropicus
+2.00E+07	135914	Bacillus tropicus
+2.00E+07	135903	Bacillus tropicus
+2.00E+05	82160	Bacillus tropicus
+2.00E+05	82908	Bacillus tropicus
+2.00E+05	92257	Bacillus tropicus
+2.00E+03	28441	Bacillus tropicus
+2.00E+03	32084	Bacillus tropicus
+2.00E+03	30713	Bacillus tropicus
+2.00E+02	24317	Bacillus tropicus
+2.00E+02	25240	Bacillus tropicus
+2.00E+02	26917	Bacillus tropicus
+2.00E+07	105479	Paenibacillus chitinolyticus
+2.00E+07	106503	Paenibacillus chitinolyticus
+2.00E+07	107535	Paenibacillus chitinolyticus
+2.00E+05	82982	Paenibacillus chitinolyticus
+2.00E+05	84566	Paenibacillus chitinolyticus
+2.00E+05	83696	Paenibacillus chitinolyticus
+2.00E+04	28726	Paenibacillus chitinolyticus
+2.00E+04	32726	Paenibacillus chitinolyticus
+2.00E+04	31635	Paenibacillus chitinolyticus
+2.00E+02	24561	Paenibacillus chitinolyticus
+2.00E+02	25745	Paenibacillus chitinolyticus
+2.00E+02	27725	Paenibacillus chitinolyticus
+2.00E+07	109754	Bacillus subtilis
+1.98E+07	101964	Bacillus subtilis
+2.00E+07	100065	Bacillus subtilis
+2.00E+05	67499	Bacillus subtilis
+2.00E+05	59686	Bacillus subtilis
+2.00E+05	61540	Bacillus subtilis
+2.00E+03	18074	Bacillus subtilis
+2.00E+03	17310	Bacillus subtilis
+2.00E+03	16599	Bacillus subtilis
+2.01E+02	17730	Bacillus subtilis
+2.01E+02	17385	Bacillus subtilis
+2.01E+02	19212	Bacillus subtilis
+2.20E+07	137192	Bacillus mycoides
+2.20E+07	124346	Bacillus mycoides
+2.20E+07	125081	Bacillus mycoides
+2.20E+05	82315	Bacillus mycoides
+2.20E+05	74607	Bacillus mycoides
+2.20E+05	75048	Bacillus mycoides
+2.20E+03	22592	Bacillus mycoides
+2.20E+03	21109	Bacillus mycoides
+2.20E+03	20748	Bacillus mycoides
+2.20E+02	21621	Bacillus mycoides
+2.20E+02	21731	Bacillus mycoides
+2.20E+02	23429	Bacillus mycoides
+2.00E+07	95434	Paenibacillus tritici
+2.00E+07	96360	Paenibacillus tritici
+2.00E+07	97294	Paenibacillus tritici
+2.00E+05	75079	Paenibacillus tritici
+2.00E+05	76513	Paenibacillus tritici
+2.00E+05	75725	Paenibacillus tritici
+2.00E+04	25991	Paenibacillus tritici
+2.00E+04	29609	Paenibacillus tritici
+2.00E+04	28622	Paenibacillus tritici
+2.00E+02	22222	Paenibacillus tritici
+2.00E+02	23294	Paenibacillus tritici
+2.00E+02	25084	Paenibacillus tritici
+1.76E+07	124845	Bacillus subtilis type strain
+1.80E+07	111912	Bacillus subtilis type strain
+1.76E+07	113824	Bacillus subtilis type strain
+1.80E+05	74907	Bacillus subtilis type strain
+1.80E+05	68639	Bacillus subtilis type strain
+1.80E+05	69795	Bacillus subtilis type strain
+1.76E+03	20559	Bacillus subtilis type strain
+1.76E+03	19843	Bacillus subtilis type strain
+1.76E+03	19711	Bacillus subtilis type strain
+1.81E+02	19676	Bacillus subtilis type strain
+1.81E+02	20862	Bacillus subtilis type strain
+1.81E+02	22727	Bacillus subtilis type strain
+2.00E+07	100456	Paenibacillus pabuli
+2.00E+07	101431	Paenibacillus pabuli
+2.00E+07	102414	Paenibacillus pabuli
+2.00E+05	79030	Paenibacillus pabuli
+2.00E+05	80539	Paenibacillus pabuli
+2.00E+05	79710	Paenibacillus pabuli
+2.00E+04	27358	Paenibacillus pabuli
+2.00E+04	31167	Paenibacillus pabuli
+2.00E+04	30128	Paenibacillus pabuli
+2.00E+02	23391	Paenibacillus pabuli
+2.00E+02	24519	Paenibacillus pabuli
+2.00E+02	26404	Paenibacillus pabuli
