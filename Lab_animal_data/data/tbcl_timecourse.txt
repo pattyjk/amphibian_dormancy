@@ -1,4 +1,4 @@
-4hr	16hr	24hr	Sample_ID	Species	Common_name
+Hr4	Hr16	Hr24	Sample_ID	Species	CommonName
 22294	24771	25019	1	Salamandra salamandra	Fire salamander
 21456	23840	24079	2	Salamandra salamandra	Fire salamander
 22634	25148	25400	3	Salamandra salamandra	Fire salamander

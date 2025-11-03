@@ -1,11 +1,5 @@
-#'------------------------------------------------------------
-#'             Andrew Miller-Klugman
-#'        Spore forming Genera Abundance
-#'              Started: 2024-03-23
-#'-----------------------------------------------------------
-
 # read in the file of the spore forming genera 
-spore_forming_genera <- readLines("./amphibian_dormancy/spore_forming_genera.txt")
+spore_forming_genera <- readLines("~/Documents/GitHub/amphibian_dormancy/spore_forming_genera.txt")
 # load in the asv files
 source("Lab_animal_data/Microbiome_data.R")
 

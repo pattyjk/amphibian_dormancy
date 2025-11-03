@@ -15,6 +15,7 @@ library(dplyr)
 library(agricolae)
 library(purrr)
 library(Hmisc)
+setwd('~/Documents/GitHub/amphibian_dormancy/')
 
 # Load in the needed data
 #TbCl Data 
@@ -45,6 +46,7 @@ cell_culture_frozen <-
 
 cfu_past_fresh <- read_excel("lab_animal_data/data/CFU_cell_counts.xlsx", sheet =2) |>
   mutate(SampleType = "Fresh")
+
 cfu_past_frozen <- read_excel("lab_animal_data/data/CFU_cell_counts.xlsx", sheet =6)|>
   mutate(SampleType = "Frozen")
 
@@ -55,29 +57,19 @@ cfu_past_frozen <- read_excel("lab_animal_data/data/CFU_cell_counts.xlsx", sheet
 cell_stain_long <-
   pivot_longer(cell_stains, cols = c('Total bacteria_blue', 'Total_bacteria_red'), names_to = "stain", values_to = "value")
 
-# create a barplot that displays both stain types on a single axis based on species
-ctc_dapi <-
-  ggplot(cell_stain_long, aes(x = value, y = Species, fill = stain)) +
-           geom_boxplot()+
-  ylab("Cell Count") +
-  theme_bw() +
-  scale_fill_manual(values =c("Total_bacteria_red" = "#FF9999", "Total bacteria_blue" =  "#56B4E9" ),
-                    labels = c("Stained with DAPI", "Stained with CTC"))
-
-# plot percent dormancy
-ctc_dormant <- ggplot(cell_stain_long, aes(x = Species, y = Per_dormant, fill = Species)) +
-  geom_boxplot()
+# plot percent dormancy based on
+ggplot(cell_stain_long, aes(x = Species, y = Per_dormant)) +
+  geom_boxplot()+
+  coord_flip()+
+  ylab("Percent Dormant Cells")+
+  xlab("")+
+  theme_bw()
 
 # Stats 
 set.seed(12345)
-# run anova to compare effects of stain type and species 
-anova_result_stains <- aov(value ~ stain * Species, data = cell_stain_long)
-summary(anova_result_stains)
-
-# TukeyHSD to view differences by species 
-tukey_result_stain <- TukeyHSD(anova_result_stains, "Species", group = TRUE)
-print(tukey_result_stain)
-
+#t-test for maths
+pairwise.t.test(cell_stain_long$Per_dormant, cell_stain_long$Species)
+#sig comparisions: AmMa v. SaSa, BoOr vs SaSa, EuWi vs SaSa, LiCa vs. SaSa, NoVi vs. SaSa
 
 #### TbCL Figures ####
 
@@ -86,41 +78,39 @@ total_vs_viable <-
   total_vs_viable |>
   filter(Type1 != 'Mucosome')
 
-# pivot datato longer to place on singular plot
+# pivot data to longer to place on singular plot
 total_vs_viable_long <-
   pivot_longer(total_vs_viable, cols = c('Total_fluor', 'Viable_fluor'), names_to = "total_vs_viable", values_to = "Fluor_reading")
 
-#adds a new column that determines the spore count from the fluorescnese reading data based on the average standard curve
+#adds a new column that determines the spore count from the fluorescence reading data based on the average standard curve
 total_vs_viable_clean <-
   total_vs_viable_long |>
   mutate(num_spore = (Fluor_reading-22798)/0.272)
+df$col = replace(df$col, df$col < 0, 0)
 
-#remove the negative values from the spore counts
- ## total_vs_viable_clean <-
-  ## total_vs_viable_clean |>
-  ## filter(num_spore >= 0)
 
-total_vs_viable_clean <-
-  total_vs_viable_clean |>
-  mutate(fresh_vs_frozen = "Fresh")
+total_vs_viable_clean$num_spore<-replace(total_vs_viable_clean$num_spore, total_vs_viable_clean$num_spore < 0, 0)
+total_vs_viable_clean$Per_viable<-replace(total_vs_viable_clean$Per_viable, total_vs_viable_clean$Per_viable < 0, 0)
 
 #plotting the measure of viable versus total spore counts 
 total_vs_viable_clean |>
   ggplot(aes(x= Species, y = num_spore, fill = total_vs_viable)) +
   geom_boxplot() + 
   scale_fill_manual(values =c("Total_fluor" = "#FF9999", "Viable_fluor" =  "#56B4E9" ),
-                    labels = c("Viable Spore Count", "Total Spore Count"))
+                    labels = c("Viable Spore Count", "Total Spore Count"))+
+  ylab('Numer of spores ml-1')+
+  xlab("")+
+  theme_bw()+
+  coord_flip()
 
 # plot as a percentage of viable/total
 total_vs_viable |>
   ggplot(aes(x = Species, y = Per_viable, fill = Species)) +
-  stat_summary(fun.data=mean_sdl, geom="bar") +
+  geom_boxplot()+
   theme_bw() +
-  scale_y_continuous(labels= scales::label_percent(scale = 1, accuracy =1)) +
-  theme(axis.title.x=element_blank(),
-        axis.text.x=element_blank(),
-        axis.ticks.x=element_blank())
-  
+  coord_flip()+
+  ylab("Percent viable Spores")+
+  xlab("")
   
 # combine fresh versus frozen data for both total and viable spores
 frozen_spore_total <- frozen_spore_total[-1, ]
@@ -216,68 +206,21 @@ Cell_culture_combined <-
 Cell_culture_combined |>
   ggplot( aes(`CFU/ml_2/22`, Species , fill = SampleType)) +
   geom_boxplot() +
-  theme_bw()
+  theme_bw()+
+  ylab('CFU/mL')+
+  xlab("")
 
-# combine fresh and frozen pasteurization dataframes
+# combine fresh and frozen pasteurization data frames
 cell_count_past <- bind_rows(cfu_past_fresh, cfu_past_frozen)
-View(cell_count_past)
 
 # merge the past data with the full culture data to measure percent of total 
 cell_count_past_per <- merge(Cell_culture_combined, cell_count_past) 
-View(cell_count_past_per)
 
 # graph percent of total that are spore forming bacteria 
 cell_count_past_per |>
   ggplot(aes(x = Species, y = (100*(CFU_ml/`CFU/ml_2/22`)), fill = SampleType)) +
   geom_boxplot() +
-  ylab("% Culturable Spore Forming Bacteria")
-
-culture_dormant <- 
-  ggplot(cell_count_past_per, aes(x = Species, y = (100*(CFU_ml/`CFU/ml_2/22`)), fill = Species )) +
-  geom_boxplot()
-  
-
-
-
-#### Standard Curve Graph ####
-# create a function to apply the formula to x values
-  apply_formula <- function(x, formula) {
-    data.frame(x = x, y = eval(parse(text = formula), envir = list(x = x))) 
-  }
-  
-  # Formulas to be applied
-  species_formulas <- data.frame(species = c("average_curve", "Paenibacillus pabuli", "Paenibacillus tritici", 
-                                             "Bacillus mycoides", "Bacillus subtilis","Paenibacillus chitinolyticus",
-                                             "Bacillus_ tropicus", "Lysinibacillus fusiformis", "Virdibacillus arri"),
-  formulas <- c("0.272*x+22798", "0.277*x+24384", "0.263*x+23166", "0.254*x+21567", 
-                "0.277*x+17471", "0.291*x+25604", "0.291*x+27622", "0.291*x+21181", 
-                "0.272 * x + 23898")
-  )
-  
- # Generate random x values
-  x_values <- runif(100, 0, 15000)
-  
-  # Apply formulas and create a data frame
-  result_df <- map2_df(species_formulas$formula, species_formulas$species, ~ apply_formula(x_values, .x) |>
-                         mutate(species = .y, formula = .x))
-
- #vizualize result
-  View(result_df)
-  
- # make a plot with error bars using the newly created data
-  result_df |>
-    ggplot(aes(x=x, y=y, color = species, group = species)) +
-    geom_line()+
-    geom_smooth(method="lm") +
-    theme_minimal()
-  
-
-
-
-
-
-
-
-
-
-
+  ylab("% Culturable bacteria capable of forming spores")+
+  xlab("")+
+  theme_bw()+
+  coord_flip()

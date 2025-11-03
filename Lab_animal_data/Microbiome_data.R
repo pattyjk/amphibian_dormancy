@@ -1,10 +1,3 @@
-#' ----------------------------------------------
-#' 
-#' Andrew Miller-Klugman
-#' Lab animal Microbiome Analysis 
-#' 
-#' ----------------------------------------------
-
 library(vegan)
 library(ggplot2)
 library(tidyr)
@@ -35,7 +28,6 @@ asv_table <- replace(asv_table, is.na(asv_table), 0)
 meta <- bind_rows(meta1, meta2, meta3) |>
   distinct()
 
-
 #look at sequencing depth
 colSums(asv_table)
 
@@ -60,9 +52,9 @@ ko.coords<-merge(ko.coords, meta, by.x='SampleID', by.y='SampleID')
 
 #calculate percent variation explained for first two axis
 100*round(ko_pcoa$CA$eig[1]/sum(ko_pcoa$CA$eig), 3)
-#10
+#10.7
 100*round(ko_pcoa$CA$eig[2]/sum(ko_pcoa$CA$eig), 3)
-#7.2
+#7.6
 
 #plot PCoA
 ggplot(ko.coords, aes(MDS1, MDS2, color=Species))+
@@ -70,8 +62,8 @@ ggplot(ko.coords, aes(MDS1, MDS2, color=Species))+
   #geom_text()+
   theme_bw()+
   guides(alpha = "none")+
-  xlab("PC1- 10%")+
-  ylab("PC2- 7.2%") +
+  xlab("PC1- 10.7%")+
+  ylab("PC2- 7.6%") +
   stat_ellipse(aes(group = Species), type = "norm", level = 0.95, linetype = "dashed")
 
 
@@ -82,18 +74,18 @@ larv.alph<-as.data.frame(specnumber(rrarefy(t(asv_table), sample=107)))
 larv.alph$SampleID<-row.names(larv.alph)
 larv.alph<-merge(larv.alph, meta, by='SampleID')
 larv.alph$Richness<-as.numeric(larv.alph$`specnumber(rrarefy(t(asv_table), sample = 107))`)
-t.test(larv.alph$Richness, larv.alph$Type2)
+t.test(larv.alph$Richness, larv.alph$Nuc_type)
 # t = 12.147, df = 49, p-value < 2.2e-16
 
 larv.alpha2<-as.data.frame(vegan::diversity(rrarefy(t(asv_table), sample=107), index = 'shannon'))
 names(larv.alpha2)<-"Shannon"
 larv.alph<-cbind(larv.alph, larv.alpha2)
 
-t.test(larv.alph$Shannon, larv.alph$Type2)
+t.test(larv.alph$Shannon, larv.alph$Nuc_type)
 # t = 21.537, df = 49, p-value < 2.2e-16
 
 #plot richness
-ggplot(larv.alph, aes(Species, Richness, fill=Species))+
+ggplot(larv.alph, aes(Species, Richness, fill=Nuc_type))+
   geom_jitter()+
   geom_boxplot()+
   theme_bw()+
@@ -104,7 +96,7 @@ ggplot(larv.alph, aes(Species, Richness, fill=Species))+
   #scale_fill_manual(values = c('#f58231', '#4363d8'))
 
 # plot Shannon Diversity
-ggplot(larv.alph, aes(Species, Shannon, fill=Species))+
+ggplot(larv.alph, aes(Species, Shannon, fill=Nuc_type))+
   geom_jitter()+
   geom_boxplot()+
   theme_bw()+
@@ -114,10 +106,38 @@ ggplot(larv.alph, aes(Species, Shannon, fill=Species))+
   ylab("Shannon Diversity")
   #scale_fill_manual(values = c('#f58231', '#4363d8'))
 
+#calculate percent dormant
+#split into DNA RNA table
+DNA_cols <- grepl("DNA", names(asv_table))
+rna_table<-asv_table[, !DNA_cols]
+dna_table<-asv_table[, DNA_cols]
 
+#sort to be in same order
+dna_table<-dna_table[,sort(names(dna_table))]
+rna_table<-rna_table[,sort(names(rna_table))]
 
+#divide tables to get ratios, add one to each value to remove any issues with division
+ratio_table<-(rna_table+1)/(dna_table+1)
 
+#calculate percent dormant
+above_1 <- colSums(ratio_table >= 1)
 
+# Total number of rows
+total_rows <- nrow(ratio_table)
 
+# Calculate the proportion of rows above or equal to 1 for each column
+results <- above_1 / total_rows
 
+# Create a new data frame to store the results
+lab_dorm <- data.frame(Column = names(results), Proportion = results)
 
+#append metadata for stuff
+lab_dorm<-merge(lab_dorm, meta, by.x='Column', by.y='SampleID')
+
+#plot it
+ggplot(lab_dorm, aes(Species, Proportion))+
+  geom_boxplot()+
+  theme_bw()+
+  ylab("Percent Active")+
+  xlab("")+
+  coord_flip()
