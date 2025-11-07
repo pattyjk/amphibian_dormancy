@@ -1,0 +1,10 @@
+Amphibian Species	Strain	Closest BLASTn hit	Equation	Slope	Intercept	R^2	Citation
+Salamandra.salamandra	DE626	Virdibacillus arri	y=0.272x+23898.331	0.272	23898.331	0.998	Bletz et al. 2018. RSPB
+Colostethus panamensis	Panama65C	Lysinibacillus fusiformis	y=0.291x+21181.977	0.291	21181.977	0.999	Becker et al 2015
+Agalychnis.callidryas	Panama.A49A	Bacillus tropicus	y=0.291x+27622.1	0.291	27622.1	0.985	Unpublished
+Anaxyrus.americanus	CC5C	Paenibacillus chitinolyticus	y=0.291x+25604.477	0.291	25604.477	0.998	Walke et al. 2015, Appl Environ Microbiol.
+Dendropsophus.ebraccatus	Panama.D48D	Bacillus subtilis	y=0.227x+17471.059	0.227	17471.059	0.991	Unpublished
+Ask Ross	DF16B	Bacillus mycoides	y=0.254x+21567.938	0.254	21567.938	0.993	Unpublished
+Lithobates.catesbeianus	Franklin22	Paenibacillus tritici	y=0.263x+23166.107	0.263	23166.107	0.998	Unpublished
+Plethodon.cinereus	THA3.2	Paenibacillus pabuli	y=0.277x+24384.792	0.277	24384.792	0.998	10.1128/AEM.00186-17
+N/A	Bacillus subtilis type strain	Bacillus subtilis	y=0.282x+20292.925	0.282	20292.925	0.995	N/A

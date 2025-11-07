@@ -1,16 +1,9 @@
-#'-------------------------------------------------------------
-#'
-#'    Andrew Miller-Klugman
-#'    RIBBiTR Microbiome Analysis
-#'    
-#'--------------------------------------------------------------
-
 library(vegan)
 library(ggplot2)
 library(tidyr)
 library(dplyr)
 library(tidyverse)
-set.seed(1234)
+set.seed(515)
 
 # Read in the asv files and metadata
 asv_table1 <- read.delim("Ribbitr_data/data/PaBr_asv_table.txt", header =T)
