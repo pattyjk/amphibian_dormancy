@@ -82,6 +82,7 @@ dorm_calc_lab$PerActive<-dorm_calc_lab$ActiveOTUs/dorm_calc_lab$TotalOTUs
 dorm_calc_lab$SampleID<-row.names(dorm_calc_lab)
 
 #quick plot
+library(ggplot2)
 ggplot(dorm_calc_lab, aes(PerActive))+
   geom_histogram()+
   theme_bw()
@@ -109,7 +110,7 @@ ggplot(dorm_calc_lab2, aes(Per_active, PerActive, color=Species))+
   xlab('Percent Active- Cell staining')+
   stat_cor(method='spearman')
 
-#pull out just activity measurments
+#pull out just activity measurements
 active_data<-dorm_calc_lab2[,c(5,30, 54)]
 names(active_data)<-c('Species', 'ActiveCellStain', 'Active16SRatio')
 
