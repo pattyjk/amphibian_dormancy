@@ -297,9 +297,15 @@ ggplot(dorm_calc_rib, aes(PerActive))+
   geom_histogram()+
   theme_bw()
 
+#make sampleid column
+dorm_calc_rib$SampleID<-row.names(dorm_calc_rib)
+
 #add in meta data
 meta<-read.delim('~/Documents/GitHub/amphibian_dormancy/Ribbitr_data/master_ribbitr_meta_norna.txt', header=T)
-dorm_calc_rib2<-merge(meta, dorm_calc_rib, by='SampleID')
+dorm_calc_rib2<-merge(meta, dorm_calc_rib, by='SampleID', all.x=T)
+
+#write to file
+write.table(dorm_calc_rib2, '~/Documents/GitHub/amphibian_dormancy/ribbitr_dorm.txt', quote=F, sep='\t', row.names=F)
 
 #pull out only columns of interest for plotting
 rib_dorm<-dorm_calc_rib2[,c(1,7, 34, 59)]

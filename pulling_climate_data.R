@@ -3,7 +3,7 @@ library(terra)
 
 # 2. Load your coordinate file
 # Assumes 'ribbitr_latlong.txt' is in your current working directory
-coords_df <- read.table("~/Documents/GitHub/amphibian_dormancy/ribbitr_latlong.txt", header = TRUE, sep = "\t")
+coords_df <- read.table("~/Documents/GitHub/amphibian_dormancy/ribbitr_latlong_cali.txt", header = TRUE, sep = "\t")
 
 #Download WorldClim bioclimatic data, takes time to grab
 # res = 0.5 (highest resolution, ~1km), 2.5, 5, or 10 minutes of a degree
@@ -44,4 +44,4 @@ bio_colnames <- c(
 names(final_data)<-bio_colnames
 
 #write to file for safe keeping
-write.table(final_data, '~/Documents/GitHub/amphibian_dormancy/ribbitr_climate_data.txt', sep='\t', quote=F, row.names=F)
+write.table(final_data, '~/Documents/GitHub/amphibian_dormancy/ribbitr_climate_data_cali.txt', sep='\t', quote=F, row.names=F)
