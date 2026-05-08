@@ -4,7 +4,7 @@
 data<-read.delim("amphibian_dormancy/sample_data.txt", header=T)
 str(dat)
 
-##write a function to do the calculation (SPearman correlation)
+##write a function to do the calculation (Spearman correlation)
 #parts to change: 
 #data- whatever your data frame is named, 
 #the 'fresh_CFU' and 'Frozen_counts' to whatever column you're naming

@@ -9,7 +9,7 @@ library(DBI)
 usethis::edit_r_environ()
 
 #connect to database
-dbcon = HopToDB("ribbitr")
+dbcon = hopToDB("ribbitr")
 
 # load table "all_tables" from schema "public"
 mdt <- tbl(dbcon, Id("public", "all_tables")) %>%
@@ -59,10 +59,10 @@ sample_mb = db_sample %>%
 result_bd = db_sample %>%
   filter(sample_type == "bd") %>%
   inner_join(db_bdqpcr %>%
-               filter(!is.na(detected)) %>%
+               filter(!is.na(bd_detected)) %>%
                group_by(sample_id, sample_name_bd) %>%  # for some sets of results we we have replicates, and need to handle these appropriately for your needs
                summarise(bd_replicates = n(),
-                         bd_detected = any(detected, na.rm = TRUE),
+                         bd_detected = any(bd_detected, na.rm = TRUE),
                          bd_mean_its1_copies_per_swab = mean(bd_its1_copies_per_swab, na.rm = TRUE),
                          .groups = "drop"), by = "sample_id")
 
@@ -95,6 +95,7 @@ capture_sample_out = capture_all %>%
     taxon_capture,
     sample_id_amp,
     sample_name_amp,
+    bd_replicates,	bd_detected,	bd_mean_its1_copies_per_swab,
     total_peptides_ug,
     date,
     site,
